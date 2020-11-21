@@ -14,10 +14,10 @@ namespace DashSystem
     public sealed class DashSystem : IDashSystem
     {
         public event UserBalanceNotification UserBalanceWarning;
-        
-        public List<IUser> Users { get; } = new List<IUser>();
-        public List<IProduct> Products { get; } = new List<IProduct>();
-        public List<ITransaction> Transactions { get; } = new List<ITransaction>();
+
+        private List<IUser> Users { get; } = new List<IUser>();
+        private List<IProduct> Products { get; } = new List<IProduct>();
+        private List<ITransaction> Transactions { get; } = new List<ITransaction>();
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
@@ -28,6 +28,7 @@ namespace DashSystem
         public DashSystem()
         {
             LoadData();
+            SubscribeEvents();
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -115,6 +116,14 @@ namespace DashSystem
                 csvData => Transactions.Add(csvData.ToTransaction(this)));
 
             Console.WriteLine("Successfully loaded all data!");
+        }
+
+        private void SubscribeEvents()
+        {
+            foreach (IUser user in Users)
+            {
+                user.LowFundsWarning += (amount) => UserBalanceWarning?.Invoke(user, amount);
+            }
         }
         
         private static void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)

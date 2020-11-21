@@ -4,8 +4,12 @@ using System.Text.RegularExpressions;
 
 namespace DashSystem.Users
 {
+    public delegate void LowFundsNotification(decimal amount);
+    
     public sealed class User : IUser, IComparable<User>
     {
+        public event LowFundsNotification LowFundsWarning;
+        
         private const int MaxUsernameCharacters = 9;
 
         private string email;
@@ -24,7 +28,7 @@ namespace DashSystem.Users
             Email = email;
             Balance = balance;
         }
-        
+
         public uint Id { get; }
 
         public string FirstName
@@ -135,7 +139,7 @@ namespace DashSystem.Users
             {
                 if (value < 50)
                 {
-                    Console.WriteLine("Warning: Balance is lower than 50 kr.!");
+                    LowFundsWarning?.Invoke(balance);
                 }
                 
                 balance = value;
