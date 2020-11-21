@@ -21,12 +21,11 @@ namespace DashSystem.Models.Core
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
-        private readonly string dataDirectory = Path.Combine(
-            Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))))!,
-            "DashSystem.Models", "CsvData");
+        private readonly string dataDirectory = Path.Combine(Directory.GetCurrentDirectory(), "CsvData");
         
         public DashSystemController()
         {
+            Console.WriteLine(dataDirectory);
             LoadData();
             SubscribeEvents();
         }
