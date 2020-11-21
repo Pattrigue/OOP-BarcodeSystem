@@ -6,6 +6,7 @@ namespace DashSystem.UI
 {
     public interface IDashSystemCli
     {
+        event DashSystemEvent CommandEntered;
         void Start();
         void Close();
         void DisplayUserNotFound(string username);
@@ -17,6 +18,5 @@ namespace DashSystem.UI
         void DisplayUserBuysProduct(int count, BuyTransaction transaction);
         void DisplayInsufficientCash(User user, Product product);
         void DisplayGeneralError(string errorString);
-        //event StregsystemEvent CommandEntered;
     }
 }

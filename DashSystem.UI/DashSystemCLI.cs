@@ -8,30 +8,42 @@ using DashSystem.Users;
 
 namespace DashSystem.UI
 {
+    public delegate void DashSystemEvent(string command);
+        
     public sealed class DashSystemCli : IDashSystemCli
     {
+        public event DashSystemEvent CommandEntered;
+
+        private bool isRunning;
+
         public void Start()
         {
             IDashSystemController controller = new DashSystemController();
+          
+            isRunning = true;
 
-            ShowProducts(controller.ActiveProducts);
+            do
+            {
+                ShowProducts(controller.ActiveProducts);
 
-            Console.ReadLine(); 
+                Console.ReadLine();
+                Console.Clear();
+            } while (isRunning);
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            isRunning = false;
         }
 
         public void DisplayUserNotFound(string username)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"User {username} not found!");
         }
 
         public void DisplayProductNotFound(string product)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"User {product} not found!");
         }
 
         public void DisplayUserInfo(User user)
@@ -41,12 +53,12 @@ namespace DashSystem.UI
 
         public void DisplayTooManyArgumentsError(string command)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Too many arguments in command {command}!");
         }
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Admin command {adminCommand} not found!");
         }
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
@@ -61,12 +73,12 @@ namespace DashSystem.UI
 
         public void DisplayInsufficientCash(User user, Product product)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Insufficient cash!\nUser {user.Username} does not have enough cash to purchase {product.Name}");
         }
 
         public void DisplayGeneralError(string errorString)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Error: {errorString}");
         }
 
         private void ShowProducts(IEnumerable<IProduct> products)

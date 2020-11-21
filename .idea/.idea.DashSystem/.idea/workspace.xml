@@ -25,11 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Controller/DashSystem.Controller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Controller/DashSystem.Controller.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Models/Core/DashSystemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystem.UI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystem.UI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +38,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/CsvDataReader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/UserCsvData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/ProductCsvData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/Core/IDashSystemController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/Users/User.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DashSystem.Models/Core/Constants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/Users/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashSystem/Core/Constants.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,7 +56,6 @@
         <option value="$PROJECT_DIR$/DashSystem/Products/SeasonalProduct.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/LoadCsvFile.cs" />
-        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/TransactionCsvData.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/BuyTransactionCsvData.cs" />
@@ -80,13 +77,15 @@
         <option value="$PROJECT_DIR$/DashSystem.Data/Users/User.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/ProductCsvData.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Data/Core/Constants.cs" />
-        <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Controller/Class1.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Transactions/BuyTransaction.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Core/DashSystemController.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" />
       </list>
     </option>
   </component>
@@ -181,7 +180,7 @@
       <workItem from="1605980482491" duration="1662000" />
       <workItem from="1605983188774" duration="77000" />
       <workItem from="1605983890922" duration="1398000" />
-      <workItem from="1605985302017" duration="6463000" />
+      <workItem from="1605985302017" duration="7544000" />
     </task>
     <servers />
   </component>
@@ -211,22 +210,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605984500614" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605994738012">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605995091068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605994738012" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605994738012">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605995091068" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605995091068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605994738012" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605994738012">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605995091068" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605995091068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605994738012" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605994738012">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605995091068" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605995091068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605994738012" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605995091068" />
     <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1605985289542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
