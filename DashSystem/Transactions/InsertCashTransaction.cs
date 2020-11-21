@@ -9,7 +9,7 @@ namespace DashSystem.Transactions
         public InsertCashTransaction(IUser user, DateTime date, decimal amount) 
             : base(user, date, amount) { }
 
-        public override string CsvFileName => "insertcashtransactions.csv";
+        protected override string CsvFileName => Constants.InsertCashTransactionsFileName;
 
         public override string ToString() => $"Insert cash transaction with ID {Id}: {Amount}, {User}, {Date}";
 

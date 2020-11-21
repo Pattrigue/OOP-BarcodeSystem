@@ -13,9 +13,9 @@ namespace DashSystem.Transactions
             Product = product;
         }
 
-        public override string CsvFileName => "buytransactions.csv";
-
         public IProduct Product { get; }
+
+        protected override string CsvFileName => Constants.BuyTransactionsFileName;
 
         public override string ToString() => $"Buy transaction with ID {Id}: {Amount}, {User}, {Date}";
 

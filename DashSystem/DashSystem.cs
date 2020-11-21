@@ -27,17 +27,7 @@ namespace DashSystem
         
         public DashSystem()
         {
-            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), Path.Combine(dataDirectory, "users.csv"), 
-                csvData => Users.Add((User)csvData));
-            
-            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), Path.Combine(dataDirectory, "products.csv"), 
-                csvData => Products.Add((Product)csvData));
-            
-            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), Path.Combine(dataDirectory, "buytransactions.csv"),
-                csvData => Transactions.Add(csvData.ToTransaction(this)));
-            
-            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), Path.Combine(dataDirectory, "insertcashtransactions.csv"),
-                csvData => Transactions.Add(csvData.ToTransaction(this)));
+            LoadData();
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -100,6 +90,31 @@ namespace DashSystem
             Transactions.Add(transaction);
 
             return transaction;
+        }
+
+        private void LoadData()
+        {
+            Console.WriteLine("Loading users...");
+            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), 
+                Path.Combine(dataDirectory, Constants.UsersCsvFileName), 
+                csvData => Users.Add((User)csvData));
+            
+            Console.WriteLine("Loading products...");
+            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), 
+                Path.Combine(dataDirectory, Constants.ProductsCsvFileName), 
+                csvData => Products.Add((Product)csvData));
+            
+            Console.WriteLine("Loading buy transactions...");
+            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), Path.Combine(dataDirectory, 
+                    Constants.BuyTransactionsFileName),
+                csvData => Transactions.Add(csvData.ToTransaction(this)));
+            
+            Console.WriteLine("Loading insert cash transactions...");
+            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), Path.Combine(dataDirectory, 
+                    Constants.InsertCashTransactionsFileName),
+                csvData => Transactions.Add(csvData.ToTransaction(this)));
+
+            Console.WriteLine("Successfully loaded all data!");
         }
         
         private static void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)

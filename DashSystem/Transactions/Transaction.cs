@@ -4,11 +4,7 @@ using DashSystem.Users;
 namespace DashSystem.Transactions
 {
     public abstract class Transaction : ITransaction
-    {
-        private static uint idCounter;
-
-        public abstract string CsvFileName { get; }
-        
+    {        
         protected Transaction(IUser user, DateTime date, decimal amount)
         {
             Id = idCounter++;
@@ -16,6 +12,10 @@ namespace DashSystem.Transactions
             Date = date;
             Amount = amount;
         }
+        
+        private static uint idCounter;
+
+        protected abstract string CsvFileName { get; }
 
         public uint Id { get; }
 
