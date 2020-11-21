@@ -7,9 +7,9 @@ namespace DashSystem.Products
         public DateTime SeasonStartDate { get; }
         public DateTime SeasonEndDate { get; }
         
-        public SeasonalProduct(string name, decimal price, bool isActive, bool canBeBoughtOnCredit, 
+        public SeasonalProduct(uint id, string name, decimal price, bool isActive, bool canBeBoughtOnCredit, 
             DateTime seasonStartDate, DateTime seasonEndDate)
-            : base(name, price, isActive, canBeBoughtOnCredit)
+            : base(id, name, price, isActive, canBeBoughtOnCredit)
         {
             SeasonStartDate = seasonStartDate;
             SeasonEndDate = seasonEndDate;

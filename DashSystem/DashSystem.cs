@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.IO;
+using System.Text.RegularExpressions;
 using DashSystem.Products;
 using DashSystem.Transactions;
 using DashSystem.Users;
+using DashSystem.CsvDataAccess;
 
 namespace DashSystem
 {
@@ -14,16 +15,15 @@ namespace DashSystem
     {
         public event UserBalanceNotification UserBalanceWarning;
         
-        public List<IUser> Users { get; }
-        public List<IProduct> Products { get; }
-        public List<ITransaction> Transactions { get; }
+        public List<IUser> Users { get; } = new List<IUser>();
+        public List<IProduct> Products { get; } = new List<IProduct>();
+        public List<ITransaction> Transactions { get; } = new List<ITransaction>();
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
         public DashSystem()
         {
-            DataReader<ProductCsvData> productDataReader = new DataReader<ProductCsvData>(';');
-            IEnumerable<ProductCsvData> res = productDataReader.ReadFile("products.csv");
+            LoadProductsFromCsvFile();
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -77,6 +77,20 @@ namespace DashSystem
                 .Where(t => t.User.Equals(user))
                 .OrderBy(t => t.Date)
                 .Take(count);
+        }
+
+        private void LoadProductsFromCsvFile()
+        {
+            CsvDataReader<ProductCsvData> productCsvDataReader = new CsvDataReader<ProductCsvData>(';');
+            IEnumerable<ProductCsvData> productCsvData = productCsvDataReader.ReadFile("products.csv");
+            
+            foreach (ProductCsvData productData in productCsvData)
+            {
+                Product product = new Product(productData.Id, productData.Name, productData.Price, productData.Active, false);
+                
+                Products.Add(product);
+                Console.WriteLine($"Loaded product: {product}!");
+            }
         }
         
         private ITransaction ExecuteTransaction(ITransaction transaction)

@@ -7,15 +7,13 @@ namespace DashSystem.Products
     {
         private const uint MinId = 1;
 
-        private static uint idCounter;
-        
         private uint id;
         
         private string name;
         
-        public Product(string name, decimal price, bool isActive, bool canBeBoughtOnCredit)
+        public Product(uint id, string name, decimal price, bool isActive, bool canBeBoughtOnCredit)
         {
-            Id = idCounter++;
+            Id = id;
             Name = name;
             Price = price;
             IsActive = isActive;
