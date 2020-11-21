@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DashSystem.Data\DashSystem.Data.csproj" />
+      <ProjectReference Include="..\DashSystem.Models\DashSystem.Models.csproj" />
       <ProjectReference Include="..\DashSystem\DashSystem.csproj" />
     </ItemGroup>
 

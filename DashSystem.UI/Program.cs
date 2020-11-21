@@ -4,7 +4,8 @@
     {
         private static void Main(string[] args)
         {
-            new Data.Core.DashSystem();
+            DashSystemCli cli = new DashSystemCli();
+            cli.Start();
         }
     }
 }
