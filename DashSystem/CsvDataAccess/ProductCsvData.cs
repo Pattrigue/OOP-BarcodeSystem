@@ -1,4 +1,6 @@
-﻿namespace DashSystem.CsvDataAccess
+﻿using DashSystem.Products;
+
+namespace DashSystem.CsvDataAccess
 {
     public sealed class ProductCsvData : ICsvData
     {
@@ -46,6 +48,11 @@
             str = str.Replace("\"", string.Empty);
 
             return str;
+        }
+
+        public static explicit operator Product(ProductCsvData productCsvData)
+        {
+            return new Product(productCsvData.Id, productCsvData.Name, productCsvData.Price, productCsvData.Active, false);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace DashSystem.CsvDataAccess
+﻿using System;
+using DashSystem.Users;
+
+namespace DashSystem.CsvDataAccess
 {
     public sealed class UserCsvData : ICsvData
     {
@@ -19,6 +22,11 @@
             Username = fields[3];
             Balance = decimal.Parse(fields[4]);
             Email = fields[5];
+        }
+
+        public static explicit operator User(UserCsvData userCsvData)
+        {
+            return new User(userCsvData.Id, userCsvData.FirstName, userCsvData.LastName, userCsvData.Username, userCsvData.Email, userCsvData.Balance);
         }
     }
 }

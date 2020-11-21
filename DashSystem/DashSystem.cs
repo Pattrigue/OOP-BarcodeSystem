@@ -22,8 +22,8 @@ namespace DashSystem
 
         public DashSystem()
         {
-            LoadProductsFromCsvFile();
-            LoadUsersFromCsvFile();
+            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), "users.csv", csvData => Users.Add((User)csvData));
+            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), "products.csv", csvData => Products.Add((Product)csvData));
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -79,31 +79,14 @@ namespace DashSystem
                 .Take(count);
         }
 
-        private void LoadProductsFromCsvFile()
+        private void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string fileName, Action<T> callbackForEachItem)
+            where T : ICsvData, new()
         {
-            CsvDataReader<ProductCsvData> productCsvDataReader = new CsvDataReader<ProductCsvData>(';');
-            IEnumerable<ProductCsvData> productCsvData = productCsvDataReader.ReadFile("products.csv");
-            
-            foreach (ProductCsvData productData in productCsvData)
-            {
-                Product product = new Product(productData.Id, productData.Name, productData.Price, productData.Active, false);
-                
-                Products.Add(product);
-                Console.WriteLine($"Loaded product: {product}!");
-            }
-        }
+            IEnumerable<T> csvData = dataReader.ReadFile(fileName);
 
-        private void LoadUsersFromCsvFile()
-        {
-            CsvDataReader<UserCsvData> userCsvDataReader = new CsvDataReader<UserCsvData>(',');
-            IEnumerable<UserCsvData> userCsvData = userCsvDataReader.ReadFile("users.csv");
-            
-            foreach (UserCsvData userData in userCsvData)
+            foreach (T item in csvData)
             {
-                User user = new User(userData.FirstName, userData.LastName, userData.Username, userData.Email, userData.Balance);
-                
-                Users.Add(user);
-                Console.WriteLine($"Loaded user: {user}!");
+                callbackForEachItem?.Invoke(item);
             }
         }
         

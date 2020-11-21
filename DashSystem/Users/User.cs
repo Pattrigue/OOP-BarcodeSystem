@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
+using DashSystem.CsvDataAccess;
 
 namespace DashSystem.Users
 {
     public sealed class User : IUser, IComparable<User>
     {
         private const int MaxUsernameCharacters = 9;
-
-        private static uint idCounter = 0;
 
         private string email;
         private string firstName;
@@ -17,9 +16,9 @@ namespace DashSystem.Users
         
         private decimal balance;
 
-        public User(string firstName, string lastName, string username, string email, decimal balance)
+        public User(uint id, string firstName, string lastName, string username, string email, decimal balance)
         {
-            Id = idCounter++;
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Username = username;
