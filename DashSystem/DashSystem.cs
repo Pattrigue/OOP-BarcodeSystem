@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using DashSystem.Products;
 using DashSystem.Transactions;
 using DashSystem.Users;
@@ -24,6 +23,7 @@ namespace DashSystem
         public DashSystem()
         {
             LoadProductsFromCsvFile();
+            LoadUsersFromCsvFile();
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -90,6 +90,20 @@ namespace DashSystem
                 
                 Products.Add(product);
                 Console.WriteLine($"Loaded product: {product}!");
+            }
+        }
+
+        private void LoadUsersFromCsvFile()
+        {
+            CsvDataReader<UserCsvData> userCsvDataReader = new CsvDataReader<UserCsvData>(',');
+            IEnumerable<UserCsvData> userCsvData = userCsvDataReader.ReadFile("users.csv");
+            
+            foreach (UserCsvData userData in userCsvData)
+            {
+                User user = new User(userData.FirstName, userData.LastName, userData.Username, userData.Email, userData.Balance);
+                
+                Users.Add(user);
+                Console.WriteLine($"Loaded user: {user}!");
             }
         }
         

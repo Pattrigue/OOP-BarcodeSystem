@@ -12,6 +12,7 @@
           <e p="CsvDataReader.cs" t="Include" />
           <e p="ICsvData.cs" t="Include" />
           <e p="ProductCsvData.cs" t="Include" />
+          <e p="UserCsvData.cs" t="Include" />
         </e>
         <e p="DashSystem.cs" t="Include" />
         <e p="DashSystem.csproj" t="IncludeRecursive" />
