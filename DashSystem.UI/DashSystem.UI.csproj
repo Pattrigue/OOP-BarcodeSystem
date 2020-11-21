@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DashSystem.Data\DashSystem.Data.csproj" />
+      <ProjectReference Include="..\DashSystem\DashSystem.csproj" />
+    </ItemGroup>
+
+</Project>

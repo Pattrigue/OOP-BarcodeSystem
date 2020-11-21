@@ -23,9 +23,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DashSystem/DashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/DashSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem/Users/IUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Users/IUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Users/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Core/Constants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Core/DashSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/BuyTransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/CsvDataReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/ICsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/InsertCashTransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/ProductCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/TransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/UserCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/DashSystem.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Data/buytransactions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Data/insertcashtransactions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Data/products.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Data/users.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Products/IProduct.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Products/Product.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Products/ProductNotFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Products/SeasonalProduct.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem/Stregsystem.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Transactions/BuyTransaction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Transactions/ITransaction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Transactions/InsertCashTransaction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Transactions/InsufficientCreditsException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Transactions/Transaction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Users/IUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Users/InvalidEmailException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Users/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.Data/Users/UserNotFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystem.UI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/.idea/.idea.Stregsystem.dir/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Constants.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/BuyTransactionCsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/ICsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/InsertCashTransactionCsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/TransactionCsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/DashSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/DashSystem.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Data/buytransactions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Data/insertcashtransactions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Data/products.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Data/users.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/IDashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Data/Core/IDashSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Products/IProduct.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Products/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Products/ProductNotFoundException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Products/SeasonalProduct.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Stregsystem/Stregsystem.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Stregsystem/Stregsystem/App.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Stregsystem/Stregsystem/Stregsystem.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/BuyTransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/ITransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/InsertCashTransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/InsufficientCreditsException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/Transaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Users/IUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Users/InvalidEmailException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Users/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Users/UserNotFoundException.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +131,9 @@
         <option value="$PROJECT_DIR$/DashSystem/Transactions/InsertCashTransaction.cs" />
         <option value="$PROJECT_DIR$/DashSystem/Users/IUser.cs" />
         <option value="$PROJECT_DIR$/DashSystem/Users/User.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.UI/Class1.cs" />
         <option value="$PROJECT_DIR$/DashSystem/DashSystem.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Core/Constants.cs" />
       </list>
     </option>
   </component>
@@ -73,7 +150,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="ParameterNameHintsOptionsId" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -89,7 +166,7 @@
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_KIND" value="Unloaded" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
@@ -105,7 +182,11 @@
       <option name="presentableId" value="Default" />
       <updated>1605962582592</updated>
       <workItem from="1605962588339" duration="51000" />
-      <workItem from="1605962824843" duration="14306000" />
+      <workItem from="1605962824843" duration="15029000" />
+      <workItem from="1605980204517" duration="240000" />
+      <workItem from="1605980455488" duration="12000" />
+      <workItem from="1605980482491" duration="1662000" />
+      <workItem from="1605983188774" duration="77000" />
     </task>
     <servers />
   </component>
@@ -124,12 +205,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605983257184">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605983257184" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605977135671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -146,18 +232,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605977135671" />
+    <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size" timestamp="1605982786625">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605982786625" />
     <state x="756" y="193" key="RiderGenerateDialog" timestamp="1605977592088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="193" key="RiderGenerateDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605977592088" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1605971161904">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1605982706684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971161904" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605974667347">
+    <state x="461" y="164" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605982706684" />
+    <state x="92" y="91" width="1735" height="857" key="VCS.FileHistoryDialog" timestamp="1605980443795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605974667347" />
+    <state x="92" y="91" width="1735" height="857" key="VCS.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605980443795" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1605974184566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
