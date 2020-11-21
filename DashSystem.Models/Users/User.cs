@@ -19,7 +19,7 @@ namespace DashSystem.Models.Users
         private string username;
         
         private decimal balance;
-
+    
         public User(uint id, string firstName, string lastName, string username, string email, decimal balance)
         {
             Id = id;
@@ -153,13 +153,13 @@ namespace DashSystem.Models.Users
         {
             if (obj is User otherUser)
             {
-                return otherUser.Id == Id;
+                return otherUser.Username == Username;
             }
 
             return false;
         }
 
-        public override int GetHashCode() => Id.GetHashCode();
+        public override int GetHashCode() => Username.GetHashCode();
 
         public int CompareTo([NotNull] User otherUser) => Id.CompareTo(otherUser.Id);
     }

@@ -25,50 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DashSystem.Controller/DashSystem.Controller.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/.idea/.idea.Stregsystem.dir/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/.idea/.idea.Stregsystem.dir/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/.idea/.idea.Stregsystem.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/.idea/.idea.Stregsystem.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/.idea/.idea.Stregsystem.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Core/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Core/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Core/DashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Core/DashSystemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Core/IDashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvData/buytransactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvData/buytransactions.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvData/insertcashtransactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvData/insertcashtransactions.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvData/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvData/products.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvData/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvData/users.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/BuyTransactionCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/BuyTransactionCsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/CsvDataReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/CsvDataReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/ICsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/ICsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/InsertCashTransactionCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/InsertCashTransactionCsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/ProductCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/ProductCsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/TransactionCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/TransactionCsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/CsvDataAccess/UserCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/CsvDataAccess/UserCsvData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/DashSystem.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/DashSystem.Models.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Products/IProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Products/IProduct.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Products/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Products/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Products/ProductNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Products/ProductNotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Products/SeasonalProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Products/SeasonalProduct.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem/App.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Stregsystem/Stregsystem/Stregsystem.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Transactions/BuyTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Transactions/BuyTransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Transactions/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Transactions/ITransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Transactions/InsertCashTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Transactions/InsertCashTransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Transactions/InsufficientCreditsException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Transactions/InsufficientCreditsException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Transactions/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Transactions/Transaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Users/IUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Users/IUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Users/InvalidEmailException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Users/InvalidEmailException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.Data/Users/UserNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Users/UserNotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystem.UI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystem.UI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +78,7 @@
         <option value="$PROJECT_DIR$/DashSystem.Data/Core/Constants.cs" />
         <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Controller/Class1.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" />
       </list>
     </option>
   </component>
@@ -215,7 +173,7 @@
       <workItem from="1605980482491" duration="1662000" />
       <workItem from="1605983188774" duration="77000" />
       <workItem from="1605983890922" duration="1398000" />
-      <workItem from="1605985302017" duration="2402000" />
+      <workItem from="1605985302017" duration="2778000" />
     </task>
     <servers />
   </component>
