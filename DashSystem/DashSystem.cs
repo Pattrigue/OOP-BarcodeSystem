@@ -20,31 +20,12 @@ namespace DashSystem
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
-        public class CSVData
-        {
-            public CSVData(string csvLine, string separator)
-            {
-                string[] fields = csvLine.Split(separator);
-            }
-        }
-        
         public DashSystem()
         {
-            string path = @"D:\Jottacloud\AAU 3. semester\OOP\Eksamensopgave 1\Eksamensopgave - Copy\Stregsystem\Data\products.csv";
-
-            Console.WriteLine(path);
-            
-            List<CSVData> loadedCsvData = File.ReadAllLines(path)
-                .Skip(1)
-                .Select(csvLine => new CSVData(csvLine, ";"))
-                .ToList();
-            
-            foreach (CSVData csvData in loadedCsvData)
-            {
-                Console.WriteLine();
-            }
+            DataReader<ProductCsvData> productDataReader = new DataReader<ProductCsvData>(';');
+            IEnumerable<ProductCsvData> res = productDataReader.ReadFile("products.csv");
         }
-        
+
         public ITransaction BuyProduct(IUser user, IProduct product)
         {
             BuyTransaction buyTransaction = new BuyTransaction(user, product, DateTime.Now);
