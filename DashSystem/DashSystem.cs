@@ -93,7 +93,16 @@ namespace DashSystem
                 .Take(count);
         }
 
-        private void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)
+        private ITransaction ExecuteTransaction(ITransaction transaction)
+        {
+            transaction.Execute();
+            transaction.Log(dataDirectory);
+            Transactions.Add(transaction);
+
+            return transaction;
+        }
+        
+        private static void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)
             where T : ICsvData, new()
         {
             IEnumerable<T> csvData = dataReader.ReadFile(path);
@@ -102,15 +111,6 @@ namespace DashSystem
             {
                 callbackForEachItem?.Invoke(item);
             }
-        }
-        
-        private ITransaction ExecuteTransaction(ITransaction transaction)
-        {
-            transaction.Execute();
-            transaction.Log(dataDirectory);
-            Transactions.Add(transaction);
-
-            return transaction;
         }
     }
 }
