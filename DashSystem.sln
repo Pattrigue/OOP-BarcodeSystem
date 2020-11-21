@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DashSystem.Models", "DashSystem.Models\DashSystem.Models.csproj", "{400E23C3-87B5-475B-B7C5-7FD961867F42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DashSystem", "DashSystem\DashSystem.csproj", "{400E23C3-87B5-475B-B7C5-7FD961867F42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DashSystem.UI", "DashSystem.UI\DashSystem.UI.csproj", "{4BB5ED79-2984-4B79-9B04-70D54B74E540}"
 EndProject

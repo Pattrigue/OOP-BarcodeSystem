@@ -6,22 +6,10 @@
     <e p="C:\Users\Patrick\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Patrick\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
     <e p="C:\Users\Patrick\Documents\GitHub\OOP DashSystem" t="IncludeFlat">
-      <e p="DashSystem.Controller" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="DashSystem.Controller.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="DashSystem.Controller.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="DashSystem.Models" t="IncludeRecursive">
+      <e p="DashSystem" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Core" t="Include">
           <e p="Constants.cs" t="Include" />
-          <e p="DashSystemController.cs" t="Include" />
           <e p="IDashSystemController.cs" t="Include" />
         </e>
         <e p="CsvData" t="Include">
@@ -39,11 +27,11 @@
           <e p="TransactionCsvData.cs" t="Include" />
           <e p="UserCsvData.cs" t="Include" />
         </e>
-        <e p="DashSystem.Models.csproj" t="IncludeRecursive" />
+        <e p="DashSystem.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="DashSystem.Models.AssemblyInfo.cs" t="Include" />
+              <e p="DashSystem.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -52,9 +40,6 @@
           <e p="Product.cs" t="Include" />
           <e p="ProductNotFoundException.cs" t="Include" />
           <e p="SeasonalProduct.cs" t="Include" />
-        </e>
-        <e p="Properties" t="Include">
-          <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Transactions" t="Include">
           <e p="BuyTransaction.cs" t="Include" />
@@ -68,6 +53,18 @@
           <e p="IUser.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="UserNotFoundException.cs" t="Include" />
+        </e>
+      </e>
+      <e p="DashSystem.Controller" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DashSystem.Controller.csproj" t="IncludeRecursive" />
+        <e p="DashSystemController.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="DashSystem.Controller.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="DashSystem.sln" t="IncludeFlat" />

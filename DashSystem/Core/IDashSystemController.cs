@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using DashSystem.Models.Products;
-using DashSystem.Models.Transactions;
-using DashSystem.Models.Users;
+using DashSystem.Products;
+using DashSystem.Transactions;
+using DashSystem.Users;
 
-namespace DashSystem.Models.Core
+namespace DashSystem.Core
 {
+    public delegate void UserBalanceNotification(IUser user, decimal balance);
+    
     public interface IDashSystemController
     {
         event UserBalanceNotification UserBalanceWarning;

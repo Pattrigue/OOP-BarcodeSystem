@@ -1,6 +1,6 @@
-﻿using DashSystem.Models.Products;
-using DashSystem.Models.Transactions;
-using DashSystem.Models.Users;
+﻿using DashSystem.Products;
+using DashSystem.Transactions;
+using DashSystem.Users;
 
 namespace DashSystem.UI
 {

@@ -1,6 +1,6 @@
-﻿using DashSystem.Models.Products;
+﻿using DashSystem.Products;
 
-namespace DashSystem.Models.CsvDataAccess
+namespace DashSystem.CsvDataAccess
 {
     public sealed class ProductCsvData : ICsvData
     {

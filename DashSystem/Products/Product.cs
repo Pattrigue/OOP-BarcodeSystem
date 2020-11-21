@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DashSystem.Models.Products
+namespace DashSystem.Products
 {
     public class Product : IProduct
     {

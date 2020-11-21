@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
-using DashSystem.Models.Core;
-using DashSystem.Models.Products;
-using DashSystem.Models.Users;
+using DashSystem.Core;
+using DashSystem.Products;
+using DashSystem.Users;
 
-namespace DashSystem.Models.Transactions
+namespace DashSystem.Transactions
 {
     public sealed class BuyTransaction : Transaction
     {

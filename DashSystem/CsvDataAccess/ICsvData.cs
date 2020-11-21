@@ -1,4 +1,4 @@
-﻿namespace DashSystem.Models.CsvDataAccess
+﻿namespace DashSystem.CsvDataAccess
 {
     public interface ICsvData
     {

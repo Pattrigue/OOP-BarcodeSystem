@@ -1,8 +1,8 @@
 ﻿using System;
-using DashSystem.Models.Products;
-using DashSystem.Models.Users;
+using DashSystem.Products;
+using DashSystem.Users;
 
-namespace DashSystem.Models.Transactions
+namespace DashSystem.Transactions
 {
     public sealed class InsufficientCreditsException : Exception
     {

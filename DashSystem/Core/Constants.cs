@@ -1,4 +1,4 @@
-﻿namespace DashSystem.Models.Core
+﻿namespace DashSystem.Core
 {
     public static class Constants
     {

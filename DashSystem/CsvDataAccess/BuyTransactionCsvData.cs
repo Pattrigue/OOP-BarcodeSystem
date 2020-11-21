@@ -1,10 +1,10 @@
 ﻿using System;
-using DashSystem.Models.Core;
-using DashSystem.Models.Products;
-using DashSystem.Models.Transactions;
-using DashSystem.Models.Users;
+using DashSystem.Core;
+using DashSystem.Products;
+using DashSystem.Transactions;
+using DashSystem.Users;
 
-namespace DashSystem.Models.CsvDataAccess
+namespace DashSystem.CsvDataAccess
 {
     public sealed class BuyTransactionCsvData : TransactionCsvData
     {

@@ -1,6 +1,6 @@
-﻿using DashSystem.Models.Users;
+﻿using DashSystem.Users;
 
-namespace DashSystem.Models.CsvDataAccess
+namespace DashSystem.CsvDataAccess
 {
     public sealed class UserCsvData : ICsvData
     {

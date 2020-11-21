@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DashSystem.Models.Users
+namespace DashSystem.Users
 {
     public sealed class InvalidEmailException : Exception
     {

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using DashSystem.Models.CsvDataAccess;
-using DashSystem.Models.Products;
-using DashSystem.Models.Transactions;
-using DashSystem.Models.Users;
+using DashSystem.Core;
+using DashSystem.CsvDataAccess;
+using DashSystem.Products;
+using DashSystem.Transactions;
+using DashSystem.Users;
 
 namespace DashSystem.Models.Core
 {
-    public delegate void UserBalanceNotification(IUser user, decimal balance);
-
     public sealed class DashSystemController : IDashSystemController
     {
         public event UserBalanceNotification UserBalanceWarning;

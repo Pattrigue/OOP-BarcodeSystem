@@ -5,7 +5,6 @@
         <LangVersion>8</LangVersion>
         <AssemblyName>DashSystem</AssemblyName>
         <OutputType>Library</OutputType>
-        <RootNamespace>DashSystem.Models</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

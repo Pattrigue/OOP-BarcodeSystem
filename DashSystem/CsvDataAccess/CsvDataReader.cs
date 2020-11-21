@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace DashSystem.Models.CsvDataAccess
+namespace DashSystem.CsvDataAccess
 {
     public sealed class CsvDataReader<T> where T : ICsvData, new()
     {

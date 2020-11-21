@@ -1,8 +1,8 @@
 ﻿using System;
-using DashSystem.Models.Core;
-using DashSystem.Models.Transactions;
+using DashSystem.Core;
+using DashSystem.Transactions;
 
-namespace DashSystem.Models.CsvDataAccess
+namespace DashSystem.CsvDataAccess
 {
     public abstract class TransactionCsvData : ICsvData
     {

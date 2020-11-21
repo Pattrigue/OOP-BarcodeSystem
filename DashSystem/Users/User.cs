@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-namespace DashSystem.Models.Users
+namespace DashSystem.Users
 {
     public delegate void LowFundsNotification(decimal amount);
     

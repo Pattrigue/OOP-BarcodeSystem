@@ -1,7 +1,7 @@
 ﻿using System;
-using DashSystem.Models.Users;
+using DashSystem.Users;
 
-namespace DashSystem.Models.Transactions
+namespace DashSystem.Transactions
 {
     public interface ITransaction
     {

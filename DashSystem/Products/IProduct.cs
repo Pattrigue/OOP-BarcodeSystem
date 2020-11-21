@@ -1,4 +1,4 @@
-﻿namespace DashSystem.Models.Products
+﻿namespace DashSystem.Products
 {
     public interface IProduct
     {

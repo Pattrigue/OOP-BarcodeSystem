@@ -1,4 +1,4 @@
-﻿namespace DashSystem.Models.Users
+﻿namespace DashSystem.Users
 {
     public interface IUser
     {
