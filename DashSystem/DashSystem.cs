@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 using DashSystem.Products;
 using DashSystem.Transactions;
 using DashSystem.Users;
@@ -20,10 +21,23 @@ namespace DashSystem
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
+        private readonly string dataDirectory = Path.Combine(
+            Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())))!,
+            "Data");
+        
         public DashSystem()
         {
-            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), "users.csv", csvData => Users.Add((User)csvData));
-            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), "products.csv", csvData => Products.Add((Product)csvData));
+            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), Path.Combine(dataDirectory, "users.csv"), 
+                csvData => Users.Add((User)csvData));
+            
+            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), Path.Combine(dataDirectory, "products.csv"), 
+                csvData => Products.Add((Product)csvData));
+            
+            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), Path.Combine(dataDirectory, "buytransactions.csv"),
+                csvData => Transactions.Add(csvData.ToTransaction(this)));
+            
+            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), Path.Combine(dataDirectory, "insertcashtransactions.csv"),
+                csvData => Transactions.Add(csvData.ToTransaction(this)));
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)
@@ -79,10 +93,10 @@ namespace DashSystem
                 .Take(count);
         }
 
-        private void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string fileName, Action<T> callbackForEachItem)
+        private void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)
             where T : ICsvData, new()
         {
-            IEnumerable<T> csvData = dataReader.ReadFile(fileName);
+            IEnumerable<T> csvData = dataReader.ReadFile(path);
 
             foreach (T item in csvData)
             {
@@ -93,6 +107,7 @@ namespace DashSystem
         private ITransaction ExecuteTransaction(ITransaction transaction)
         {
             transaction.Execute();
+            transaction.Log(dataDirectory);
             Transactions.Add(transaction);
 
             return transaction;

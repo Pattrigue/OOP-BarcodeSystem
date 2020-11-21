@@ -10,5 +10,6 @@ namespace DashSystem.Transactions
         DateTime Date { get; }
         decimal Amount { get; }
         void Execute();
+        void Log(string dataDirectory);
     }
 }

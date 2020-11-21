@@ -1,32 +1,34 @@
-﻿using System;
-using DashSystem.Users;
+﻿using DashSystem.Users;
 
 namespace DashSystem.CsvDataAccess
 {
     public sealed class UserCsvData : ICsvData
     {
-        public uint Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Username { get; private set; }
-        public decimal Balance { get; private set; }
-        public string Email { get; private set; }
+        private uint id;
+        
+        private string firstName;
+        private string lastName;
+        private string username;
+
+        private decimal balance;
+        
+        private string email;
 
         public void ReadLine(char separator, string csvLine)
         {
             string[] fields = csvLine.Split(separator);
 
-            Id = uint.Parse(fields[0]);
-            FirstName = fields[1];
-            LastName = fields[2];
-            Username = fields[3];
-            Balance = decimal.Parse(fields[4]);
-            Email = fields[5];
+            id = uint.Parse(fields[0]);
+            firstName = fields[1];
+            lastName = fields[2];
+            username = fields[3];
+            balance = decimal.Parse(fields[4]);
+            email = fields[5];
         }
 
         public static explicit operator User(UserCsvData userCsvData)
         {
-            return new User(userCsvData.Id, userCsvData.FirstName, userCsvData.LastName, userCsvData.Username, userCsvData.Email, userCsvData.Balance);
+            return new User(userCsvData.id, userCsvData.firstName, userCsvData.lastName, userCsvData.username, userCsvData.email, userCsvData.balance);
         }
     }
 }

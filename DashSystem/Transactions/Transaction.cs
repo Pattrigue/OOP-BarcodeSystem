@@ -7,6 +7,8 @@ namespace DashSystem.Transactions
     {
         private static uint idCounter;
 
+        public abstract string CsvFileName { get; }
+        
         protected Transaction(IUser user, DateTime date, decimal amount)
         {
             Id = idCounter++;
@@ -26,5 +28,7 @@ namespace DashSystem.Transactions
         public override string ToString() => $"{Id} {User} {Amount} {Date}";
 
         public abstract void Execute();
+        
+        public abstract void Log(string dataDirectory);
     }
 }

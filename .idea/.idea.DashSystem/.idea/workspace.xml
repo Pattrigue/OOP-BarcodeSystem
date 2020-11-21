@@ -23,12 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/LoadCsvFile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/BuyTransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/InsertCashTransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/TransactionCsvData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem/Data/buytransactions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashSystem/Data/insertcashtransactions.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DashSystem/DashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/DashSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/BuyTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Transactions/BuyTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Transactions/ITransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/InsertCashTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Transactions/InsertCashTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem/Transactions/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Transactions/Transaction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DashSystem/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem/Users/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,22 +55,33 @@
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/DataReader.cs" />
         <option value="$PROJECT_DIR$/DashSystem/Products/Product.cs" />
         <option value="$PROJECT_DIR$/DashSystem/Products/SeasonalProduct.cs" />
-        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" />
         <option value="$PROJECT_DIR$/DashSystem/Users/IUser.cs" />
-        <option value="$PROJECT_DIR$/DashSystem/Users/User.cs" />
-        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/ProductCsvData.cs" />
-        <option value="$PROJECT_DIR$/DashSystem/DashSystem.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/LoadCsvFile.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Transactions/ITransaction.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/UserCsvData.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Transactions/Transaction.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Users/User.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Transactions/BuyTransaction.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/Transactions/InsertCashTransaction.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/TransactionCsvData.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/BuyTransactionCsvData.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/InsertCashTransactionCsvData.cs" />
+        <option value="$PROJECT_DIR$/DashSystem/DashSystem.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1kbHsykntJSUi10pDDVJHUg98fg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -98,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605962582592</updated>
       <workItem from="1605962588339" duration="51000" />
-      <workItem from="1605962824843" duration="9643000" />
+      <workItem from="1605962824843" duration="13055000" />
     </task>
     <servers />
   </component>
@@ -119,25 +138,26 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605971709414">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605976273805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971709414" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605971709414">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605976273805" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605976273805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971709414" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605971709414">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605976273805" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605976273805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971709414" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605971709414">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605976273805" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605976273805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971709414" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605976273805" />
     <state x="756" y="193" key="RiderGenerateDialog" timestamp="1605965067767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -146,13 +166,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605971161904" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1605968051903">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605974667347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605968051903" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605968426872">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605974667347" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1605974184566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605968426872" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605974184566" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605976166984">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605976166984" />
   </component>
 </project>

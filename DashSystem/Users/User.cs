@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
-using DashSystem.CsvDataAccess;
 
 namespace DashSystem.Users
 {
@@ -143,7 +142,7 @@ namespace DashSystem.Users
             }
         }
 
-        public override string ToString() => $"{FirstName} {LastName} ({Email})";
+        public override string ToString() => $"{Id}: {FirstName} {LastName} ({Email})";
 
         public override bool Equals(object obj)
         {
