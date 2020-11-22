@@ -4,7 +4,7 @@ using DashSystem.Users;
 
 namespace DashSystem.UI
 {
-    public interface IDashSystemCli
+    public interface IDashSystemUI
     {
         event DashSystemEvent CommandEntered;
         void Start();
@@ -13,6 +13,7 @@ namespace DashSystem.UI
         void DisplayProductNotFound(string product);
         void DisplayUserInfo(User user);
         void DisplayTooManyArgumentsError(string command);
+        void DisplayCommandNotFoundMessage(string command);
         void DisplayAdminCommandNotFoundMessage(string adminCommand);
         void DisplayUserBuysProduct(BuyTransaction transaction);
         void DisplayUserBuysProduct(int count, BuyTransaction transaction);

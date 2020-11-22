@@ -9,8 +9,8 @@ using DashSystem.Users;
 namespace DashSystem.UI
 {
     public delegate void DashSystemEvent(string command);
-        
-    public sealed class DashSystemCli : IDashSystemCli
+
+    public sealed class DashSystemUI : IDashSystemUI
     {
         public event DashSystemEvent CommandEntered;
 
@@ -19,14 +19,18 @@ namespace DashSystem.UI
         public void Start()
         {
             IDashSystemController controller = new DashSystemController();
-          
+            DashSystemCommandParser commandParser = new DashSystemCommandParser(controller, this);
+            
             isRunning = true;
 
             do
             {
                 ShowProducts(controller.ActiveProducts);
 
-                Console.ReadLine();
+                string command = Console.ReadLine();
+                commandParser.ParseCommand(command);
+                Console.ReadKey();
+                
                 Console.Clear();
             } while (isRunning);
         }
@@ -56,6 +60,11 @@ namespace DashSystem.UI
             Console.WriteLine($"Too many arguments in command {command}!");
         }
 
+        public void DisplayCommandNotFoundMessage(string command)
+        {
+            Console.WriteLine($"Command {command} not found!");
+        }
+        
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
             Console.WriteLine($"Admin command {adminCommand} not found!");
