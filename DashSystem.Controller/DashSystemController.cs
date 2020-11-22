@@ -27,6 +27,8 @@ namespace DashSystem.Controller
             LoadCsvData();
             ExecuteLoggedTransactions();
             SubscribeEvents();
+
+            Console.WriteLine(GetUserByUsername("ndavo").Balance);
         }
 
         public ITransaction BuyProduct(IUser user, IProduct product)

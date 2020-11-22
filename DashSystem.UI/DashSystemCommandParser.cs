@@ -44,22 +44,13 @@ namespace DashSystem.UI
             try
             {
                 user = controller.GetUserByUsername(username);
-            }
-            catch (Exception e)
-            {
-                dashSystemUI.DisplayError(e.Message);
-                return;
-            };
-
-            try
-            {
                 product = controller.GetProductById(productId);
             }
             catch (Exception e)
             {
                 dashSystemUI.DisplayError(e.Message);
                 return;
-            }
+            };
 
             controller.BuyProduct(user, product);
             Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");
