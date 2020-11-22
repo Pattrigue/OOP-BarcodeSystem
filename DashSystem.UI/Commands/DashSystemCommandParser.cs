@@ -23,7 +23,7 @@ namespace DashSystem.UI.Commands
             adminCommands = new Dictionary<string, IAdminCommand>()
             {
                 { ":addcredits", new AddCreditsToUserCommand() },
-                { ":q", new ExitCommand() },
+                { ":qa", new ExitCommand() },
                 { ":activate", new ActivateProductCommand() },
                 { ":deactivate", new DeactivateProductCommand() },
                 { ":crediton", new SetProductCanBeBoughtOnCreditOn() },
