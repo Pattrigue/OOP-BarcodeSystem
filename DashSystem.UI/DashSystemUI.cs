@@ -34,6 +34,7 @@ namespace DashSystem.UI
                 CommandEntered?.Invoke(command);
 
                 Console.ReadKey();
+                Console.Clear();
             } while (isRunning);
         }
 
@@ -49,7 +50,7 @@ namespace DashSystem.UI
 
         public void DisplayProductNotFound(string product)
         {
-            Console.WriteLine($"User {product} not found!");
+            Console.WriteLine($"Product {product} not found!");
         }
 
         public void DisplayUserInfo(User user)

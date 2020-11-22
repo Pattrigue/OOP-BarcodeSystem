@@ -36,7 +36,7 @@ namespace DashSystem.UI.Commands
         private void ParseCommand(string command)
         {
             if (TryParseAdminCommand(command)) return;
-            
+
             ParseUserCommand(command);
         }
 
@@ -44,21 +44,24 @@ namespace DashSystem.UI.Commands
         {
             string[] args = command.Split(' ').Skip(1).ToArray();
 
-            foreach (string commandString in adminCommands.Keys.Where(command.StartsWith))
+            foreach (string commandString in adminCommands.Keys)
             {
-                IAdminCommand adminCommand = adminCommands[commandString];
+                if (command.StartsWith(commandString))
+                {
+                    IAdminCommand adminCommand = adminCommands[commandString];
 
-                if (adminCommand.NumArguments != args.Length) continue;
-                
-                try
-                {
-                    adminCommand.Execute(args, dashSystemUI, controller);
-                    adminCommand.DisplaySuccessMessage(dashSystemUI);
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    dashSystemUI.DisplayError(e.Message);
+                    if (adminCommand.NumArguments != args.Length) continue;
+
+                    try
+                    {
+                        adminCommand.Execute(args, dashSystemUI, controller);
+                        adminCommand.DisplaySuccessMessage(dashSystemUI);
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        dashSystemUI.DisplayError(e.Message);
+                    }
                 }
             }
 
@@ -71,7 +74,7 @@ namespace DashSystem.UI.Commands
 
             bool hasTooFewArguments = args.Length < 2;
             bool hasTooManyArguments = args.Length > 2;
-            
+
             if (hasTooFewArguments)
             {
                 dashSystemUI.DisplayNotEnoughArgumentsError(command);
@@ -83,23 +86,20 @@ namespace DashSystem.UI.Commands
                 dashSystemUI.DisplayTooManyArgumentsError(command);
                 return;
             }
-            
+
             string username = args[0];
             string productIdString = args[1];
-
-            IUser user;
-            IProduct product;
 
             if (!uint.TryParse(productIdString, out uint productId))
             {
                 dashSystemUI.DisplayProductNotFound(productIdString);
                 return;
             }
-            
+
             try
             {
-                user = controller.GetUserByUsername(username);
-                product = controller.GetProductById(productId);
+                IUser user = controller.GetUserByUsername(username);
+                IProduct product = controller.GetProductById(productId);
 
                 controller.BuyProduct(user, product);
                 Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");         
@@ -107,7 +107,6 @@ namespace DashSystem.UI.Commands
             catch (Exception e)
             {
                 dashSystemUI.DisplayError(e.Message);
-                return;
             };
         }
     }
