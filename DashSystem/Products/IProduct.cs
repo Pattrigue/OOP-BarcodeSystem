@@ -6,6 +6,6 @@
         string Name { get; }
         decimal Price { get; }
         bool IsActive { get; set; }
-        bool CanBeBoughtOnCredit { get; }
+        bool CanBeBoughtOnCredit { get; set; }
     }
 }

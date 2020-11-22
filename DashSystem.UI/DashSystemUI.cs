@@ -39,8 +39,6 @@ namespace DashSystem.UI
 
         public void Close()
         {
-            Console.Clear();
-            Console.WriteLine("System closing.\nPress any key to exit the application.");
             isRunning = false;
         }
 
@@ -81,12 +79,12 @@ namespace DashSystem.UI
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{transaction.User.Username} successfully purchased {transaction.Product.Name}!");
         }
 
         public void DisplayUserBuysProduct(int count, BuyTransaction transaction)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{transaction.User.Username} successfully purchased {count} {transaction.Product.Name}!");
         }
 
         public void DisplayInsufficientCash(User user, Product product)
