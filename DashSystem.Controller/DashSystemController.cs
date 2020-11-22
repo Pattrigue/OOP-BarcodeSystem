@@ -110,6 +110,11 @@ namespace DashSystem.Controller
             
             LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), insertCashTransactionCsvPath, 
                 csvData => Transactions.Add(csvData.ToTransaction(this)));
+
+            foreach (ITransaction transaction in Transactions)
+            {
+                transaction.Execute();
+            }
         }
 
         private void SubscribeEvents()
