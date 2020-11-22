@@ -51,7 +51,7 @@ namespace DashSystem.Products
 
         public bool IsActive { get; set; }
 
-        public bool CanBeBoughtOnCredit { get; }
+        public bool CanBeBoughtOnCredit { get; set; }
 
         public override string ToString() => $"{Id} {Name} {Price}";
     }
