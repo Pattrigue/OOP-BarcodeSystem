@@ -47,11 +47,11 @@ namespace DashSystem.Products
             }
         }
         
-        public decimal Price { get; set; }
+        public decimal Price { get; }
 
         public bool IsActive { get; set; }
 
-        public bool CanBeBoughtOnCredit { get; set; }
+        public bool CanBeBoughtOnCredit { get; }
 
         public override string ToString() => $"{Id} {Name} {Price}";
     }

@@ -35,7 +35,12 @@ namespace DashSystem.UI
             } while (isRunning);
         }
 
-        public void Close() => isRunning = false;
+        public void Close()
+        {
+            Console.Clear();
+            Console.WriteLine("System closing.\nPress any key to exit the application.");
+            isRunning = false;
+        }
 
         public void DisplayUserNotFound(string username)
         {
@@ -85,6 +90,11 @@ namespace DashSystem.UI
         public void DisplayInsufficientCash(User user, Product product)
         {
             Console.WriteLine($"Insufficient cash!\nUser {user.Username} does not have enough cash to purchase {product.Name}");
+        }
+
+        public void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
         }
 
         public void DisplayError(string errorMessage)

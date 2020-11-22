@@ -5,7 +5,7 @@
         uint Id { get; }
         string Name { get; }
         decimal Price { get; }
-        bool IsActive { get; }
+        bool IsActive { get; set; }
         bool CanBeBoughtOnCredit { get; }
     }
 }
