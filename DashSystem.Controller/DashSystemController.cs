@@ -104,10 +104,10 @@ namespace DashSystem.Controller
             LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), productsCsvPath, 
                 csvData => Products.Add((Product)csvData));
             
-            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), buyTransactionsCsvPath, 
+            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), insertCashTransactionCsvPath, 
                 csvData => Transactions.Add(csvData.ToTransaction(this)));
             
-            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), insertCashTransactionCsvPath, 
+            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), buyTransactionsCsvPath, 
                 csvData => Transactions.Add(csvData.ToTransaction(this)));
         }
 

@@ -52,7 +52,7 @@ namespace DashSystem.CsvDataAccess
 
         public static explicit operator Product(ProductCsvData productCsvData)
         {
-            return new Product(productCsvData.id, productCsvData.name, productCsvData.price, productCsvData.active, false);
+            return new Product(productCsvData.id, productCsvData.name, productCsvData.price, productCsvData.active);
         }
     }
 }

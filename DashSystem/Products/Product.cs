@@ -10,7 +10,7 @@ namespace DashSystem.Products
         
         private string name;
         
-        public Product(uint id, string name, decimal price, bool isActive, bool canBeBoughtOnCredit)
+        public Product(uint id, string name, decimal price, bool isActive, bool canBeBoughtOnCredit = true)
         {
             Id = id;
             Name = name;
