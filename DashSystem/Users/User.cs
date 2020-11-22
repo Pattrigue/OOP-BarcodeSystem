@@ -132,12 +132,12 @@ namespace DashSystem.Users
             get => balance;
             set
             {
-                if (value < MinWarningBalance)
+                balance = value;
+
+                if (balance < MinWarningBalance)
                 {
                     LowFundsWarning?.Invoke(balance);
                 }
-                
-                balance = value;
             }
         }
 
