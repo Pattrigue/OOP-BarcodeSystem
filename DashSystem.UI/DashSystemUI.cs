@@ -24,7 +24,7 @@ namespace DashSystem.UI
             
             isRunning = true;
 
-            controller.UserBalanceWarning += (user, balance) => Console.WriteLine($"{user.Username} has a low balance: {balance}.");
+            controller.UserBalanceWarning += DisplayUserBalanceWarning;
             
             do
             {
@@ -100,6 +100,11 @@ namespace DashSystem.UI
         public void DisplayError(string errorMessage)
         {
             Console.WriteLine($"Error: {errorMessage}");
+        }
+
+        private void DisplayUserBalanceWarning(IUser user, decimal balance)
+        {
+            Console.WriteLine($"{user.Username} has a low balance: {balance}.");
         }
 
         private void ShowProducts(IEnumerable<IProduct> products)

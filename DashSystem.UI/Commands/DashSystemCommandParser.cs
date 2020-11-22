@@ -100,48 +100,15 @@ namespace DashSystem.UI.Commands
             {
                 user = controller.GetUserByUsername(username);
                 product = controller.GetProductById(productId);
+
+                controller.BuyProduct(user, product);
+                Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");         
             }
             catch (Exception e)
             {
                 dashSystemUI.DisplayError(e.Message);
                 return;
             };
-
-            controller.BuyProduct(user, product);
-            Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");            
-        }
-        
-        private void SetProductActive(string productIdString, bool active)
-        {
-            if (!uint.TryParse(productIdString, out uint productId))
-            {
-                dashSystemUI.DisplayProductNotFound(productIdString);
-                return;
-            }
-                        
-            IProduct product = controller.GetProductById(productId);
-            product.IsActive = active;
-            
-            dashSystemUI.DisplayMessage($"Product {product.Name} has been {(active ? "activated" : "deactivated")}!");
-        }
-        
-        private void SetProductCanBeBoughtOnCredit(string productIdString, bool canBeBoughtOnCredit)
-        {
-            if (!uint.TryParse(productIdString, out uint productId))
-            {
-                dashSystemUI.DisplayProductNotFound(productIdString);
-                return;
-            }
-                        
-            IProduct product = controller.GetProductById(productId);
-            product.CanBeBoughtOnCredit = canBeBoughtOnCredit;
-            
-            dashSystemUI.DisplayMessage($"Product {product.Name} can be bought on credit = {canBeBoughtOnCredit}.");
-        }
-
-        private void AddCredits(string userIdString)
-        {
-            
         }
     }
 }
