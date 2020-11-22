@@ -10,7 +10,6 @@ namespace DashSystem.Users
     {
         public event LowFundsNotification LowFundsWarning;
         
-        private const int MaxUsernameCharacters = 9;
         private const int MinWarningBalance = 50;
 
         private string email;
@@ -68,11 +67,6 @@ namespace DashSystem.Users
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Username cannot be empty or null!");
-                }
-                
-                if (value.Length > MaxUsernameCharacters)
-                {
-                    throw new ArgumentException($"Username cannot contain more than {MaxUsernameCharacters} characters!");
                 }
                 
                 if (Regex.IsMatch(value, "([^a-z0-9_])"))
