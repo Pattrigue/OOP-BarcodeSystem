@@ -14,7 +14,7 @@ namespace DashSystem.UI
         void DisplaySuccessMessage(IDashSystemUI dashSystemUI);
     }
 
-    public sealed class Exit : IAdminCommand
+    public sealed class ExitCommand : IAdminCommand
     {
         public int NumArguments => 0;
         
@@ -29,7 +29,7 @@ namespace DashSystem.UI
         }
     }
 
-    public sealed class AddCreditsToUser : IAdminCommand
+    public sealed class AddCreditsToUserCommand : IAdminCommand
     {
         public int NumArguments => 2;
 
@@ -59,7 +59,7 @@ namespace DashSystem.UI
 
         public abstract void DisplaySuccessMessage(IDashSystemUI dashSystemUI);
 
-        protected virtual IProduct GetProduct(string productIdString, IDashSystemUI dashSystemUI, IDashSystemController controller)
+        protected IProduct GetProduct(string productIdString, IDashSystemUI dashSystemUI, IDashSystemController controller)
         {
             if (!uint.TryParse(productIdString, out uint productId))
             {
@@ -75,7 +75,7 @@ namespace DashSystem.UI
     {
         public override int NumArguments => 1;
 
-        protected virtual bool Active { get; }
+        protected abstract bool Active { get; }
         
         private IProduct product;
         
@@ -115,8 +115,8 @@ namespace DashSystem.UI
 
             adminCommands = new Dictionary<string, IAdminCommand>()
             {
-                { ":addcredits", new AddCreditsToUser() },
-                { ":q", new Exit() },
+                { ":addcredits", new AddCreditsToUserCommand() },
+                { ":q", new ExitCommand() },
                 { ":activate", new ActivateProductCommand() },
                 { ":deactivate", new DeactivateProductCommand() },
                 
