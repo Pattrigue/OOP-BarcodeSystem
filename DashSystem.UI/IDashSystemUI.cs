@@ -13,6 +13,7 @@ namespace DashSystem.UI
         void DisplayProductNotFound(string product);
         void DisplayUserInfo(User user);
         void DisplayTooManyArgumentsError(string command);
+        void DisplayNotEnoughArgumentsError(string command);
         void DisplayCommandNotFoundMessage(string command);
         void DisplayAdminCommandNotFoundMessage(string adminCommand);
         void DisplayUserBuysProduct(BuyTransaction transaction);

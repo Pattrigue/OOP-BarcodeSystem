@@ -21,11 +21,19 @@ namespace DashSystem.UI
         private void ParseCommand(string command)
         {
             string[] args = command.Split(' ');
-            bool isCommandFormatValid = args.Length == 2;
+            
+            bool hasTooFewArguments = args.Length < 2;
+            bool hasTooManyArguments = args.Length > 2;
 
-            if (!isCommandFormatValid)
+            if (hasTooManyArguments)
             {
-                dashSystemUI.DisplayCommandNotFoundMessage(command);
+                dashSystemUI.DisplayTooManyArgumentsError(command);
+                return;
+            }
+            
+            if (!hasTooFewArguments)
+            {
+                dashSystemUI.DisplayNotEnoughArgumentsError(command);
                 return;
             }
 

@@ -57,6 +57,11 @@ namespace DashSystem.UI
             Console.WriteLine($"Too many arguments in command {command}!");
         }
 
+        public void DisplayNotEnoughArgumentsError(string command)
+        {
+            Console.WriteLine($"Not enough arguments in command {command}!");
+        }
+
         public void DisplayCommandNotFoundMessage(string command)
         {
             Console.WriteLine($"Command {command} not found!");
