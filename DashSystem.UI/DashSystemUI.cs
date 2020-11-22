@@ -32,9 +32,8 @@ namespace DashSystem.UI
 
                 string command = Console.ReadLine();
                 CommandEntered?.Invoke(command);
+
                 Console.ReadKey();
-                
-                Console.Clear();
             } while (isRunning);
         }
 
