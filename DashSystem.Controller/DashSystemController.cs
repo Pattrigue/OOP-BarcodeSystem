@@ -24,8 +24,6 @@ namespace DashSystem.Controller
         
         public DashSystemController()
         {
-            // TODO:
-            // Initialize user balance based on transactions - or overwrite existing data in users.csv
             LoadData();
             SubscribeEvents();
         }
