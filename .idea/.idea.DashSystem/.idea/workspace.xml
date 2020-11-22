@@ -24,14 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemCommandParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/IDashSystemUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashSystem.UI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/Program.cs" afterDir="false" />
-    </list>
+    <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +179,7 @@
       <workItem from="1605983188774" duration="77000" />
       <workItem from="1605983890922" duration="1398000" />
       <workItem from="1605985302017" duration="7544000" />
-      <workItem from="1606036985514" duration="2038000" />
+      <workItem from="1606036985514" duration="2815000" />
     </task>
     <servers />
   </component>
