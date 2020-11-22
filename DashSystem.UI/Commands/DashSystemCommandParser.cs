@@ -10,6 +10,8 @@ namespace DashSystem.UI.Commands
 {
     public sealed class DashSystemCommandParser
     {
+        private const char AdminCommandPrefix = ':';
+        
         private readonly IDashSystemController controller;
         private readonly IDashSystemUI dashSystemUI;
 
@@ -22,12 +24,12 @@ namespace DashSystem.UI.Commands
 
             adminCommands = new Dictionary<string, IAdminCommand>()
             {
-                { ":addcredits", new AddCreditsToUserCommand() },
-                { ":qa", new ExitCommand() },
-                { ":activate", new ActivateProductCommand() },
-                { ":deactivate", new DeactivateProductCommand() },
-                { ":crediton", new SetProductCanBeBoughtOnCreditOn() },
-                { ":creditoff", new SetProductCanBeBoughtOnCreditOff() }
+                { "addcredits", new AddCreditsToUserCommand() },
+                { "qa", new ExitCommand() },
+                { "activate", new ActivateProductCommand() },
+                { "deactivate", new DeactivateProductCommand() },
+                { "crediton", new SetProductCanBeBoughtOnCreditOn() },
+                { "creditoff", new SetProductCanBeBoughtOnCreditOff() }
             };
 
             dashSystemUI.CommandEntered += ParseCommand;
@@ -35,18 +37,25 @@ namespace DashSystem.UI.Commands
 
         private void ParseCommand(string command)
         {
-            if (TryParseAdminCommand(command)) return;
-
-            ParseUserCommand(command);
+            if (command.StartsWith(AdminCommandPrefix))
+            {
+                TryParseAdminCommand(command);
+            }
+            else
+            {
+                ParseUserCommand(command);
+            }
         }
 
-        private bool TryParseAdminCommand(string command)
+        private void TryParseAdminCommand(string command)
         {
             string[] args = command.Split(' ').Skip(1).ToArray();
 
+            string adminCommandWithoutPrefix = command.Replace(AdminCommandPrefix.ToString(), string.Empty);
+            
             foreach (string adminCommandString in adminCommands.Keys)
             {
-                if (!command.StartsWith(adminCommandString)) continue;
+                if (!adminCommandWithoutPrefix.StartsWith(adminCommandString)) continue;
                 
                 IAdminCommand adminCommand = adminCommands[adminCommandString];
 
@@ -56,15 +65,16 @@ namespace DashSystem.UI.Commands
                 {
                     adminCommand.Execute(args, dashSystemUI, controller);
                     adminCommand.DisplaySuccessMessage(dashSystemUI);
-                    return true;
+                    return;
                 }
                 catch (Exception e)
                 {
                     dashSystemUI.DisplayError(e.Message);
+                    return;
                 }
             }
-
-            return false;
+            
+            dashSystemUI.DisplayAdminCommandNotFoundMessage(command);
         }
 
         private void ParseUserCommand(string command)
