@@ -23,6 +23,8 @@ namespace DashSystem.UI
             
             isRunning = true;
 
+            controller.UserBalanceWarning += (user, balance) => Console.WriteLine($"{user.Username} has a low balance: {balance}.");
+            
             do
             {
                 ShowProducts(controller.ActiveProducts);
