@@ -44,24 +44,23 @@ namespace DashSystem.UI.Commands
         {
             string[] args = command.Split(' ').Skip(1).ToArray();
 
-            foreach (string commandString in adminCommands.Keys)
+            foreach (string adminCommandString in adminCommands.Keys)
             {
-                if (command.StartsWith(commandString))
+                if (!command.StartsWith(adminCommandString)) continue;
+                
+                IAdminCommand adminCommand = adminCommands[adminCommandString];
+
+                if (adminCommand.NumArguments != args.Length) continue;
+
+                try
                 {
-                    IAdminCommand adminCommand = adminCommands[commandString];
-
-                    if (adminCommand.NumArguments != args.Length) continue;
-
-                    try
-                    {
-                        adminCommand.Execute(args, dashSystemUI, controller);
-                        adminCommand.DisplaySuccessMessage(dashSystemUI);
-                        return true;
-                    }
-                    catch (Exception e)
-                    {
-                        dashSystemUI.DisplayError(e.Message);
-                    }
+                    adminCommand.Execute(args, dashSystemUI, controller);
+                    adminCommand.DisplaySuccessMessage(dashSystemUI);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    dashSystemUI.DisplayError(e.Message);
                 }
             }
 
