@@ -24,7 +24,8 @@ namespace DashSystem.Controller
         
         public DashSystemController()
         {
-            LoadData();
+            LoadCsvData();
+            ExecuteLoggedTransactions();
             SubscribeEvents();
         }
 
@@ -90,7 +91,7 @@ namespace DashSystem.Controller
             return transaction;
         }
 
-        private void LoadData()
+        private void LoadCsvData()
         {
             string usersCsvPath = Path.Combine(dataDirectory, Constants.UsersCsvFileName);
             string productsCsvPath = Path.Combine(dataDirectory, Constants.ProductsCsvFileName);
@@ -108,7 +109,10 @@ namespace DashSystem.Controller
             
             LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), insertCashTransactionCsvPath, 
                 csvData => Transactions.Add(csvData.ToTransaction(this)));
+        }
 
+        private void ExecuteLoggedTransactions()
+        {
             foreach (ITransaction transaction in Transactions)
             {
                 transaction.Execute();
