@@ -8,7 +8,7 @@ using DashSystem.Products;
 using DashSystem.Transactions;
 using DashSystem.Users;
 
-namespace DashSystem.Models.Core
+namespace DashSystem.Controller
 {
     public sealed class DashSystemController : IDashSystemController
     {
@@ -24,7 +24,8 @@ namespace DashSystem.Models.Core
         
         public DashSystemController()
         {
-            Console.WriteLine(dataDirectory);
+            // TODO:
+            // Initialize user balance based on transactions - or overwrite existing data in users.csv
             LoadData();
             SubscribeEvents();
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using DashSystem.Controller;
 using DashSystem.Core;
-using DashSystem.Models.Core;
 using DashSystem.Products;
 using DashSystem.Transactions;
 using DashSystem.Users;
@@ -28,7 +28,7 @@ namespace DashSystem.UI
                 ShowProducts(controller.ActiveProducts);
 
                 string command = Console.ReadLine();
-                commandParser.ParseCommand(command);
+                CommandEntered?.Invoke(command);
                 Console.ReadKey();
                 
                 Console.Clear();

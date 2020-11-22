@@ -14,9 +14,11 @@ namespace DashSystem.UI
         {
             this.controller = controller;
             this.dashSystemUI = dashSystemUI;
+
+            dashSystemUI.CommandEntered += ParseCommand;
         }
 
-        public void ParseCommand(string command)
+        private void ParseCommand(string command)
         {
             string[] args = command.Split(' ');
             bool isCommandFormatValid = args.Length == 2;

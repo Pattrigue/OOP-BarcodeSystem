@@ -24,7 +24,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="" />
+    <list default="true" id="75449c8e-a469-480f-87b5-0dea2eeed435" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DashSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystemCommandParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemCommandParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashSystem.UI/DashSystemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DashSystem.UI/DashSystemUI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,12 +82,13 @@
         <option value="$PROJECT_DIR$/DashSystem.Models/Users/User.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Transactions/BuyTransaction.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Core/DashSystemController.cs" />
-        <option value="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" />
         <option value="$PROJECT_DIR$/DashSystem.Models/Core/IDashSystemController.cs" />
         <option value="$PROJECT_DIR$/DashSystem/CsvDataAccess/CsvDataReader.cs" />
         <option value="$PROJECT_DIR$/DashSystem.UI/IDashSystemCli.cs" />
         <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemCLI.cs" />
         <option value="$PROJECT_DIR$/DashSystem.UI/IDashSystemUI.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemCommandParser.cs" />
+        <option value="$PROJECT_DIR$/DashSystem.Controller/DashSystemController.cs" />
         <option value="$PROJECT_DIR$/DashSystem.UI/DashSystemUI.cs" />
       </list>
     </option>
@@ -179,7 +185,7 @@
       <workItem from="1605983188774" duration="77000" />
       <workItem from="1605983890922" duration="1398000" />
       <workItem from="1605985302017" duration="7544000" />
-      <workItem from="1606036985514" duration="2815000" />
+      <workItem from="1606036985514" duration="3913000" />
     </task>
     <servers />
   </component>
@@ -209,22 +215,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605984500614" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606038496663">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606044037129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606038496663" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606038496663">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606044037129" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606044037129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606038496663" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606038496663">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606044037129" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606044037129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606038496663" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606038496663">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606044037129" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606044037129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606038496663" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606044037129" />
     <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1605985289542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
