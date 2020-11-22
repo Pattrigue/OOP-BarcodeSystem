@@ -35,10 +35,7 @@ namespace DashSystem.UI
             } while (isRunning);
         }
 
-        public void Close()
-        {
-            isRunning = false;
-        }
+        public void Close() => isRunning = false;
 
         public void DisplayUserNotFound(string username)
         {
@@ -64,7 +61,7 @@ namespace DashSystem.UI
         {
             Console.WriteLine($"Command {command} not found!");
         }
-        
+
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
             Console.WriteLine($"Admin command {adminCommand} not found!");
@@ -85,9 +82,9 @@ namespace DashSystem.UI
             Console.WriteLine($"Insufficient cash!\nUser {user.Username} does not have enough cash to purchase {product.Name}");
         }
 
-        public void DisplayGeneralError(string errorString)
+        public void DisplayError(string errorMessage)
         {
-            Console.WriteLine($"Error: {errorString}");
+            Console.WriteLine($"Error: {errorMessage}");
         }
 
         private void ShowProducts(IEnumerable<IProduct> products)

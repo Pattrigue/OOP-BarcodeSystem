@@ -47,7 +47,7 @@ namespace DashSystem.UI
             }
             catch (Exception e)
             {
-                dashSystemUI.DisplayGeneralError(e.Message);
+                dashSystemUI.DisplayError(e.Message);
                 return;
             };
 
@@ -57,7 +57,7 @@ namespace DashSystem.UI
             }
             catch (Exception e)
             {
-                dashSystemUI.DisplayGeneralError(e.Message);
+                dashSystemUI.DisplayError(e.Message);
                 return;
             }
 
