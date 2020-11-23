@@ -1,5 +1,4 @@
-﻿using System;
-using BarcodeSystem.Core;
+﻿using BarcodeSystem.Core;
 using BarcodeSystem.Products;
 
 namespace BarcodeSystem.UI.Commands.AdminCommands
@@ -12,7 +11,7 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
         
         private IProduct product;
         
-        public override void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemController controller)
+        public override void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemManager controller)
         {
             product = GetProduct(args[0], barcodeSystemUI, controller);
             product.IsActive = Active;
@@ -20,7 +19,7 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
 
         public override void DisplaySuccessMessage(IBarcodeSystemUI barcodeSystemUI)
         {
-            Console.WriteLine("Product {product.Name} has been activated!");
+            barcodeSystemUI.DisplayMessage("Product {product.Name} has been activated!");
         }
     }
 }

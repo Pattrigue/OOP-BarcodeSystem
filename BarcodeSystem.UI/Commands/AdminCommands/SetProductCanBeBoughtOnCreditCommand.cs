@@ -11,7 +11,7 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
 
         private IProduct product;
         
-        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemController controller)
+        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemManager controller)
         {
             uint productId = uint.Parse(args[0]);
 

@@ -16,6 +16,6 @@ namespace BarcodeSystem.CsvDataAccess
         
         public abstract void ReadLine(char separator, string csvLine);
 
-        public abstract ITransaction ToTransaction(IBarcodeSystemController barcodeSystemController);
+        public abstract ITransaction ToTransaction(IBarcodeSystemManager barcodeSystemManager);
     }
 }

@@ -8,7 +8,7 @@ namespace BarcodeSystem.Core
 {
     public delegate void UserBalanceNotification(IUser user, decimal balance);
     
-    public interface IBarcodeSystemController
+    public interface IBarcodeSystemManager
     {
         event UserBalanceNotification UserBalanceWarning;
         IEnumerable<IProduct> ActiveProducts { get; }

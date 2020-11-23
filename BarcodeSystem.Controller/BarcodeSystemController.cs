@@ -1,141 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using BarcodeSystem.Core;
-using BarcodeSystem.CsvDataAccess;
 using BarcodeSystem.Products;
-using BarcodeSystem.Transactions;
+using BarcodeSystem.UI;
+using BarcodeSystem.UI.Commands.AdminCommands;
 using BarcodeSystem.Users;
 
 namespace BarcodeSystem.Controller
 {
-    public sealed class BarcodeSystemController : IBarcodeSystemController
+    public sealed class BarcodeSystemController
     {
-        public event UserBalanceNotification UserBalanceWarning;
-
-        private List<IUser> Users { get; } = new List<IUser>();
-        private List<IProduct> Products { get; } = new List<IProduct>();
-        private List<ITransaction> Transactions { get; } = new List<ITransaction>();
-
-        public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
-
-        private readonly string dataDirectory = Path.Combine(Directory.GetCurrentDirectory(), "CsvData");
+        private const char AdminCommandPrefix = ':';
         
-        public BarcodeSystemController()
-        {
-            LoadCsvData();
-            ExecuteLoggedTransactions();
-            SubscribeEvents();
-        }
+        private readonly IBarcodeSystemManager systemManager;
+        private readonly IBarcodeSystemUI ui;
 
-        public ITransaction BuyProduct(IUser user, IProduct product)
-        {
-            BuyTransaction buyTransaction = new BuyTransaction(user, product, DateTime.Now);
-            
-            return ExecuteTransaction(buyTransaction);
-        }
+        private readonly Dictionary<string, IAdminCommand> adminCommands;
 
-        public ITransaction AddCreditsToAccount(IUser user, decimal amount)
+        public BarcodeSystemController(IBarcodeSystemManager systemManager, IBarcodeSystemUI ui)
         {
-            InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount); 
-            
-            return ExecuteTransaction(insertCashTransaction);
-        }
+            this.systemManager = systemManager;
+            this.ui = ui;
 
-        public IProduct GetProductById(uint productId)
-        {
-            IProduct product = Products.Find(p => p.Id == productId);
-
-            if (product == null)
+            adminCommands = new Dictionary<string, IAdminCommand>()
             {
-                throw new ProductNotFoundException(productId); 
+                { "addcredits", new AddCreditsToUserCommand() },
+                { "qa", new ExitCommand() },
+                { "activate", new ActivateProductCommand() },
+                { "deactivate", new DeactivateProductCommand() },
+                { "crediton", new SetProductCanBeBoughtOnCreditOn() },
+                { "creditoff", new SetProductCanBeBoughtOnCreditOff() }
+            };
+
+            ui.CommandEntered += ParseCommand;
+        }
+
+        private void ParseCommand(string command)
+        {
+            if (command.StartsWith(AdminCommandPrefix))
+            {
+                TryParseAdminCommand(command);
             }
-
-            return product;
-        }
-
-        public IEnumerable<IUser> GetUsers(Func<IUser, bool> predicate)
-        {
-            IEnumerable<IUser> users = Users.FindAll(u => predicate(u));
-
-            return users;
-        }
-
-        public IUser GetUserByUsername(string username)
-        {
-            IUser user = Users.Find(u => u.Username == username);
-
-            if (user == null)
+            else
             {
-                throw new UserNotFoundException(username);
-            }
-
-            return user;
-        }
-
-        public IEnumerable<ITransaction> GetTransactions(IUser user, int count)
-        {
-            return Transactions
-                .Where(t => t.User.Equals(user))
-                .OrderBy(t => t.Date)
-                .Take(count);
-        }
-
-        private ITransaction ExecuteTransaction(ITransaction transaction)
-        {
-            transaction.Execute();
-            transaction.Log(dataDirectory);
-            Transactions.Add(transaction);
-
-            return transaction;
-        }
-
-        private void LoadCsvData()
-        {
-            string usersCsvPath = Path.Combine(dataDirectory, Constants.UsersCsvFileName);
-            string productsCsvPath = Path.Combine(dataDirectory, Constants.ProductsCsvFileName);
-            string buyTransactionsCsvPath = Path.Combine(dataDirectory, Constants.BuyTransactionsFileName);
-            string insertCashTransactionCsvPath = Path.Combine(dataDirectory, Constants.InsertCashTransactionsFileName);
-
-            LoadFromCsvFile(new CsvDataReader<UserCsvData>(','), usersCsvPath, 
-                csvData => Users.Add((User)csvData));
-            
-            LoadFromCsvFile(new CsvDataReader<ProductCsvData>(';'), productsCsvPath, 
-                csvData => Products.Add((Product)csvData));
-            
-            LoadFromCsvFile(new CsvDataReader<InsertCashTransactionCsvData>(';'), insertCashTransactionCsvPath, 
-                csvData => Transactions.Add(csvData.ToTransaction(this)));
-            
-            LoadFromCsvFile(new CsvDataReader<BuyTransactionCsvData>(';'), buyTransactionsCsvPath, 
-                csvData => Transactions.Add(csvData.ToTransaction(this)));
-        }
-
-        private void ExecuteLoggedTransactions()
-        {
-            foreach (ITransaction transaction in Transactions)
-            {
-                transaction.Execute();
+                ParseUserCommand(command);
             }
         }
 
-        private void SubscribeEvents()
+        private void TryParseAdminCommand(string command)
         {
-            foreach (IUser user in Users)
-            {
-                user.LowFundsWarning += (amount) => UserBalanceWarning?.Invoke(user, amount);
-            }
-        }
-        
-        private static void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)
-            where T : ICsvData, new()
-        {
-            IEnumerable<T> csvData = dataReader.ReadFile(path);
+            string[] args = command.Split(' ').Skip(1).ToArray();
 
-            foreach (T item in csvData)
+            string adminCommandWithoutPrefix = command.Replace(AdminCommandPrefix.ToString(), string.Empty);
+            
+            foreach (string adminCommandString in adminCommands.Keys)
             {
-                callbackForEachItem?.Invoke(item);
+                if (!adminCommandWithoutPrefix.StartsWith(adminCommandString)) continue;
+                
+                IAdminCommand adminCommand = adminCommands[adminCommandString];
+
+                if (adminCommand.NumArguments != args.Length) continue;
+
+                try
+                {
+                    adminCommand.Execute(args, ui, systemManager);
+                    adminCommand.DisplaySuccessMessage(ui);
+                    return;
+                }
+                catch (Exception e)
+                {
+                    ui.DisplayError(e.Message);
+                    return;
+                }
             }
+            
+            ui.DisplayAdminCommandNotFoundMessage(command);
+        }
+
+        private void ParseUserCommand(string command)
+        {
+            string[] args = command.Split(' ');
+
+            bool hasTooFewArguments = args.Length < 2;
+            bool hasTooManyArguments = args.Length > 2;
+
+            string username = args[0];
+            string productIdString = args[1];
+            
+            if (hasTooFewArguments)
+            {
+                ui.DisplayNotEnoughArgumentsError(command);
+                return;
+            }
+            
+            if (hasTooManyArguments)
+            {
+                ui.DisplayTooManyArgumentsError(command);
+                return;
+            }
+
+
+            if (!uint.TryParse(productIdString, out uint productId))
+            {
+                ui.DisplayProductNotFound(productIdString);
+                return;
+            }
+
+            try
+            {
+                IUser user = systemManager.GetUserByUsername(username);
+                IProduct product = systemManager.GetProductById(productId);
+                
+                systemManager.BuyProduct(user, product);
+                Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");         
+            }
+            catch (Exception e)
+            {
+                ui.DisplayError(e.Message);
+            };
         }
     }
 }

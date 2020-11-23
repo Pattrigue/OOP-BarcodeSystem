@@ -6,7 +6,7 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
     {
         public int NumArguments => 0;
         
-        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemController controller)
+        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemManager controller)
         {
             barcodeSystemUI.Close();
         }

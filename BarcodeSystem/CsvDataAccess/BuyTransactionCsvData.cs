@@ -21,10 +21,10 @@ namespace BarcodeSystem.CsvDataAccess
             Amount = decimal.Parse(fields[4]);
         }
 
-        public override ITransaction ToTransaction(IBarcodeSystemController barcodeSystemController)
+        public override ITransaction ToTransaction(IBarcodeSystemManager barcodeSystemManager)
         {
-            IUser user = barcodeSystemController.GetUserByUsername(Username);
-            IProduct product = barcodeSystemController.GetProductById(productId);
+            IUser user = barcodeSystemManager.GetUserByUsername(Username);
+            IProduct product = barcodeSystemManager.GetProductById(productId);
                 
             return new BuyTransaction(user, product, Date);
         }

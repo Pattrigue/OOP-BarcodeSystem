@@ -2,11 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BarcodeSystem.Controller\BarcodeSystem.Controller.csproj" />
       <ProjectReference Include="..\BarcodeSystem\BarcodeSystem.csproj" />
     </ItemGroup>
 

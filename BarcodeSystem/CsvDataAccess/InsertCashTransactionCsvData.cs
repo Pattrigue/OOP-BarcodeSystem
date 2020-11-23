@@ -17,9 +17,9 @@ namespace BarcodeSystem.CsvDataAccess
             Amount = decimal.Parse(fields[3]);
         }
 
-        public override ITransaction ToTransaction(IBarcodeSystemController barcodeSystemController)
+        public override ITransaction ToTransaction(IBarcodeSystemManager barcodeSystemManager)
         {
-            IUser user = barcodeSystemController.GetUserByUsername(Username);
+            IUser user = barcodeSystemManager.GetUserByUsername(Username);
 
             return new InsertCashTransaction(user, Date, Amount);
         }

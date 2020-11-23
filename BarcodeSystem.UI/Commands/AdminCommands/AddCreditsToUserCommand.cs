@@ -10,7 +10,7 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
         private string username;
         private int amount;
 
-        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemController controller)
+        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemManager controller)
         {
             username = args[0];
             amount = int.Parse(args[1]);

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using BarcodeSystem.Controller;
 using BarcodeSystem.Core;
 using BarcodeSystem.Products;
 using BarcodeSystem.Transactions;
-using BarcodeSystem.UI.Commands;
 using BarcodeSystem.Users;
 
 namespace BarcodeSystem.UI
@@ -17,29 +15,27 @@ namespace BarcodeSystem.UI
 
         private bool isRunning;
 
-        private readonly IBarcodeSystemController controller;
+        private readonly IBarcodeSystemManager systemManager;
         
-        public BarcodeSystemUI(IBarcodeSystemController controller)
+        public BarcodeSystemUI(IBarcodeSystemManager systemManager)
         {
-            this.controller = controller;
+            this.systemManager = systemManager;
         }
 
         public void Start()
         {
-            if (controller == null)
+            if (systemManager == null)
             {
                 throw new NullReferenceException("Error: BarcodeSystemController has not been assigned to BarCodeSystemUI instance!");
             }
             
-            BarcodeSystemCommandParser commandParser = new BarcodeSystemCommandParser(controller, this);
-            
             isRunning = true;
 
-            controller.UserBalanceWarning += DisplayUserBalanceWarning;
+            systemManager.UserBalanceWarning += DisplayUserBalanceWarning;
             
             do
             {
-                ShowProducts(controller.ActiveProducts);
+                ShowProducts(systemManager.ActiveProducts);
 
                 string command = Console.ReadLine();
                 CommandEntered?.Invoke(command);
