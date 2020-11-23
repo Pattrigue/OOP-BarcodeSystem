@@ -18,7 +18,7 @@ namespace BarcodeSystem.UI.AdminCommands
             uint productId = uint.Parse(args[0]);
 
             product = systemManager.GetProductById(productId);
-
+            
             if (CanBeBoughtOnCredit == product.CanBeBoughtOnCredit)
             { 
                 output = CanBeBoughtOnCredit

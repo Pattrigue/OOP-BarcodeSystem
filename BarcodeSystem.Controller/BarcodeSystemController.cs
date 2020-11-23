@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BarcodeSystem.Core;
 using BarcodeSystem.Products;
-using BarcodeSystem.Transactions;
 using BarcodeSystem.UI;
 using BarcodeSystem.UI.AdminCommands;
 using BarcodeSystem.Users;
