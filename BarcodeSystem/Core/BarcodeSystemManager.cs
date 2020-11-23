@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using BarcodeSystem.Core;
 using BarcodeSystem.CsvDataAccess;
 using BarcodeSystem.Products;
 using BarcodeSystem.Transactions;
@@ -10,7 +9,7 @@ using BarcodeSystem.Users;
 
 namespace BarcodeSystem.Core
 {
-    public sealed class BarcodeSystemManagerManager : IBarcodeSystemManager
+    public sealed class BarcodeSystemManager : IBarcodeSystemManager
     {
         public event UserBalanceNotification UserBalanceWarning;
 
@@ -22,25 +21,29 @@ namespace BarcodeSystem.Core
 
         private readonly string dataDirectory = Path.Combine(Directory.GetCurrentDirectory(), "CsvData");
         
-        public BarcodeSystemManagerManager()
+        public BarcodeSystemManager()
         {
             LoadCsvData();
             ExecuteLoggedTransactions();
             SubscribeEvents();
         }
 
-        public ITransaction BuyProduct(IUser user, IProduct product)
+        public BuyTransaction BuyProduct(IUser user, IProduct product)
         {
             BuyTransaction buyTransaction = new BuyTransaction(user, product, DateTime.Now);
             
-            return ExecuteTransaction(buyTransaction);
+            ExecuteTransaction(buyTransaction);
+
+            return buyTransaction;
         }
 
-        public ITransaction AddCreditsToAccount(IUser user, decimal amount)
+        public InsertCashTransaction AddCreditsToAccount(IUser user, decimal amount)
         {
             InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount); 
             
-            return ExecuteTransaction(insertCashTransaction);
+            ExecuteTransaction(insertCashTransaction);
+
+            return insertCashTransaction;
         }
 
         public IProduct GetProductById(uint productId)
@@ -82,13 +85,11 @@ namespace BarcodeSystem.Core
                 .Take(count);
         }
 
-        private ITransaction ExecuteTransaction(ITransaction transaction)
+        private void ExecuteTransaction(ITransaction transaction)
         {
             transaction.Execute();
             transaction.Log(dataDirectory);
             Transactions.Add(transaction);
-
-            return transaction;
         }
 
         private void LoadCsvData()

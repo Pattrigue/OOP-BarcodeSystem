@@ -1,6 +1,5 @@
 ﻿using BarcodeSystem.Core;
 using BarcodeSystem.UI;
-using BarcodeSystem.UI.Commands;
 
 namespace BarcodeSystem.Controller
 {
@@ -8,11 +7,11 @@ namespace BarcodeSystem.Controller
     {
         private static void Main(string[] args)
         {
-            IBarcodeSystemManager systemManager = new BarcodeSystemManagerManager();
-            IBarcodeSystemUI ui = new BarcodeSystemUI(systemManager);
-            BarcodeSystemController sc = new BarcodeSystemController(systemManager, ui);
+            IBarcodeSystemManager systemManager = new BarcodeSystemManager();
+            IBarcodeSystemUI systemUI = new BarcodeSystemUI(systemManager);
+            BarcodeSystemController systemController = new BarcodeSystemController(systemManager, systemUI);
             
-            ui.Start();
+            systemUI.Start();
         }
     }
 }

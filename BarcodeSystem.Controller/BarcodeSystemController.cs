@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using BarcodeSystem.Core;
 using BarcodeSystem.Products;
+using BarcodeSystem.Transactions;
 using BarcodeSystem.UI;
-using BarcodeSystem.UI.Commands.AdminCommands;
+using BarcodeSystem.UI.AdminCommands;
 using BarcodeSystem.Users;
 
 namespace BarcodeSystem.Controller
@@ -14,14 +15,14 @@ namespace BarcodeSystem.Controller
         private const char AdminCommandPrefix = ':';
         
         private readonly IBarcodeSystemManager systemManager;
-        private readonly IBarcodeSystemUI ui;
+        private readonly IBarcodeSystemUI systemUI;
 
         private readonly Dictionary<string, IAdminCommand> adminCommands;
 
-        public BarcodeSystemController(IBarcodeSystemManager systemManager, IBarcodeSystemUI ui)
+        public BarcodeSystemController(IBarcodeSystemManager systemManager, IBarcodeSystemUI systemUI)
         {
             this.systemManager = systemManager;
-            this.ui = ui;
+            this.systemUI = systemUI;
 
             adminCommands = new Dictionary<string, IAdminCommand>()
             {
@@ -33,7 +34,7 @@ namespace BarcodeSystem.Controller
                 { "creditoff", new SetProductCanBeBoughtOnCreditOff() }
             };
 
-            ui.CommandEntered += ParseCommand;
+            systemUI.CommandEntered += ParseCommand;
         }
 
         private void ParseCommand(string command)
@@ -64,60 +65,71 @@ namespace BarcodeSystem.Controller
 
                 try
                 {
-                    adminCommand.Execute(args, ui, systemManager);
-                    adminCommand.DisplaySuccessMessage(ui);
+                    adminCommand.Execute(args, systemUI, systemManager);
+                    adminCommand.DisplaySuccessMessage(systemUI);
                     return;
                 }
                 catch (Exception e)
                 {
-                    ui.DisplayError(e.Message);
+                    systemUI.DisplayError(e.Message);
                     return;
                 }
             }
             
-            ui.DisplayAdminCommandNotFoundMessage(command);
+            systemUI.DisplayAdminCommandNotFoundMessage(command);
         }
 
         private void ParseUserCommand(string command)
         {
             string[] args = command.Split(' ');
 
-            bool hasTooFewArguments = args.Length < 2;
-            bool hasTooManyArguments = args.Length > 2;
-
-            string username = args[0];
-            string productIdString = args[1];
-            
-            if (hasTooFewArguments)
+            switch (args.Length)
             {
-                ui.DisplayNotEnoughArgumentsError(command);
+                case 1: 
+                    systemUI.DisplayUserInfo(systemManager.GetUserByUsername(args[0]));
+                    break;
+                case 2:
+                    BuyProduct(args[0], args[1], 1);
+                    break;
+                case 3:
+                    BuyProduct(args[0], args[1], args[2]);
+                    break;
+                default:
+                    systemUI.DisplayTooManyArgumentsError(command);
+                    break;
+            }
+        }
+
+        private void BuyProduct(string username, string productIdString, string countString)
+        {
+            if (!uint.TryParse(productIdString, out uint count))
+            {
+                systemUI.DisplayError($"Unrecognized number: {countString}");
                 return;
             }
             
-            if (hasTooManyArguments)
-            {
-                ui.DisplayTooManyArgumentsError(command);
-                return;
-            }
-
-
+            BuyProduct(username, productIdString, count);
+        }
+        
+        private void BuyProduct(string username, string productIdString, uint count)
+        {
             if (!uint.TryParse(productIdString, out uint productId))
             {
-                ui.DisplayProductNotFound(productIdString);
+                systemUI.DisplayProductNotFound(productIdString);
                 return;
-            }
-
+            } 
+            
             try
             {
                 IUser user = systemManager.GetUserByUsername(username);
                 IProduct product = systemManager.GetProductById(productId);
-                
-                systemManager.BuyProduct(user, product);
-                Console.WriteLine($"User {user.Username} successfully purchased product {product.Name}!");         
+
+                BuyTransaction transaction = systemManager.BuyProduct(user, product);
+                systemUI.DisplayUserBuysProduct(transaction, count);
             }
             catch (Exception e)
             {
-                ui.DisplayError(e.Message);
+                systemUI.DisplayError(e.Message);
             };
         }
     }

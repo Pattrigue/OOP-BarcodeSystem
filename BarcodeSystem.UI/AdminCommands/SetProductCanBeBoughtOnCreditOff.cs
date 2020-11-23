@@ -1,4 +1,4 @@
-﻿namespace BarcodeSystem.UI.Commands.AdminCommands
+﻿namespace BarcodeSystem.UI.AdminCommands
 {
     public sealed class SetProductCanBeBoughtOnCreditOff : SetProductCanBeBoughtOnCreditCommand
     {

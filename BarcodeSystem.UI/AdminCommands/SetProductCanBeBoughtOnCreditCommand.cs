@@ -1,7 +1,7 @@
 ﻿using BarcodeSystem.Core;
 using BarcodeSystem.Products;
 
-namespace BarcodeSystem.UI.Commands.AdminCommands
+namespace BarcodeSystem.UI.AdminCommands
 {
     public abstract class SetProductCanBeBoughtOnCreditCommand : IAdminCommand
     {
@@ -11,17 +11,17 @@ namespace BarcodeSystem.UI.Commands.AdminCommands
 
         private IProduct product;
         
-        public void Execute(string[] args, IBarcodeSystemUI barcodeSystemUI, IBarcodeSystemManager controller)
+        public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             uint productId = uint.Parse(args[0]);
 
-            product = controller.GetProductById(productId);
+            product = systemManager.GetProductById(productId);
             product.CanBeBoughtOnCredit = CanBeBoughtOnCredit;
         }
 
-        public void DisplaySuccessMessage(IBarcodeSystemUI barcodeSystemUI)
+        public void DisplaySuccessMessage(IBarcodeSystemUI systemUI)
         {
-            barcodeSystemUI.DisplayMessage($"Product {product.Name} can be bought on credit = {CanBeBoughtOnCredit}.");
+            systemUI.DisplayMessage($"Product {product.Name} can be bought on credit = {CanBeBoughtOnCredit}.");
         }
     }
 }
