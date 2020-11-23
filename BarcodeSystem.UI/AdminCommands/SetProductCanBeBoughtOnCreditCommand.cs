@@ -21,9 +21,20 @@ namespace BarcodeSystem.UI.AdminCommands
 
         public void DisplaySuccessMessage(IBarcodeSystemUI systemUI)
         {
-            string output = CanBeBoughtOnCredit
-                ? $"Product {product.Name} can now be bought on credit!"
-                : $"Product {product.Name} can no longer be bought on credit.";
+            string output;
+
+            if (product.CanBeBoughtOnCredit == CanBeBoughtOnCredit)
+            {
+                output = CanBeBoughtOnCredit
+                    ? $"Product {product.Name} can already be bought on credit!"
+                    : $"Product {product.Name} already cannot be bought on credit.";
+            }
+            else
+            {
+                output = CanBeBoughtOnCredit
+                    ? $"Product {product.Name} can now be bought on credit!"
+                    : $"Product {product.Name} can no longer be bought on credit.";
+            }
             
             systemUI.DisplayMessage(output);
         }
