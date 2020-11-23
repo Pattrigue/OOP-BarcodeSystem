@@ -82,11 +82,11 @@ namespace BarcodeSystem.Controller
         private void ParseUserCommand(string command)
         {
             string[] args = command.Split(' ');
-
+            
             switch (args.Length)
             {
-                case 1: 
-                    systemUI.DisplayUserInfo(systemManager.GetUserByUsername(args[0]));
+                case 1:
+                    DisplayUserInfo(args[0]);
                     break;
                 case 2:
                     BuyProduct(args[0], args[1], 1);
@@ -100,9 +100,21 @@ namespace BarcodeSystem.Controller
             }
         }
 
+        private void DisplayUserInfo(string username)
+        {
+            try
+            {
+                systemUI.DisplayUserInfo(systemManager.GetUserByUsername(username));
+            }
+            catch
+            {
+                systemUI.DisplayUserNotFound(username);
+            }
+        }
+
         private void BuyProduct(string username, string productIdString, string countString)
         {
-            if (!uint.TryParse(productIdString, out uint count))
+            if (!uint.TryParse(countString, out uint count))
             {
                 systemUI.DisplayError($"Unrecognized number: {countString}");
                 return;

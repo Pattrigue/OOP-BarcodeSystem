@@ -40,6 +40,8 @@ namespace BarcodeSystem.UI
                 string command = Console.ReadLine();
                 CommandEntered?.Invoke(command);
 
+                DisplayMessage("\nPress any key to continue.");
+                
                 Console.ReadKey();
                 Console.Clear();
             } while (isRunning);
@@ -63,6 +65,13 @@ namespace BarcodeSystem.UI
         public void DisplayUserInfo(IUser user)
         {
             Console.WriteLine(user);
+
+            IEnumerable<ITransaction> transactions = systemManager.GetTransactions(user, int.MaxValue);
+
+            foreach (ITransaction transaction in transactions)
+            {
+                Console.WriteLine(transaction);
+            }
         }
 
         public void DisplayTooManyArgumentsError(string command)
