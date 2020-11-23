@@ -10,36 +10,33 @@ namespace BarcodeSystem.UI.AdminCommands
         protected abstract bool CanBeBoughtOnCredit { get; }
 
         private IProduct product;
-        
-        private bool wasProductUpdated;
+
+        private string output;
         
         public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             uint productId = uint.Parse(args[0]);
 
             product = systemManager.GetProductById(productId);
-            wasProductUpdated = product.CanBeBoughtOnCredit != CanBeBoughtOnCredit;
-            
-            product.CanBeBoughtOnCredit = CanBeBoughtOnCredit;
-        }
 
-        public void DisplaySuccessMessage(IBarcodeSystemUI systemUI)
-        {
-            string output;
-
-            if (wasProductUpdated)
-            {
-                output = CanBeBoughtOnCredit
-                    ? $"Product {product.Name} can now be bought on credit!"
-                    : $"Product {product.Name} can no longer be bought on credit.";
-            }
-            else
-            {
+            if (CanBeBoughtOnCredit == product.CanBeBoughtOnCredit)
+            { 
                 output = CanBeBoughtOnCredit
                     ? $"Product {product.Name} can already be bought on credit!"
                     : $"Product {product.Name} already cannot be bought on credit!";
             }
-            
+            else
+            {
+                output = CanBeBoughtOnCredit
+                    ? $"Product {product.Name} can now be bought on credit."
+                    : $"Product {product.Name} can no longer be bought on credit.";
+                
+                product.CanBeBoughtOnCredit = CanBeBoughtOnCredit;
+            }
+        }
+
+        public void DisplaySuccessMessage(IBarcodeSystemUI systemUI)
+        {
             systemUI.DisplayMessage(output);
         }
     }

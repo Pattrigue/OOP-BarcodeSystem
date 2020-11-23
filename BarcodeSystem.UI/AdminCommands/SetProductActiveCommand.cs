@@ -10,16 +10,32 @@ namespace BarcodeSystem.UI.AdminCommands
         protected abstract bool Active { get; }
         
         private IProduct product;
+
+        private string output;
         
         public override void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             product = GetProduct(args[0], systemUI, systemManager);
-            product.IsActive = Active;
+            
+            if (Active == product.IsActive)
+            { 
+                output = Active
+                    ? $"Product {product.Name} is already active!"
+                    : $"Product {product.Name} is already inactive!";
+            }
+            else
+            {
+                output = Active
+                    ? $"Product {product.Name} is now active."
+                    : $"Product {product.Name} is no longer active.";
+                
+                product.IsActive = Active;
+            }
         }
 
         public override void DisplaySuccessMessage(IBarcodeSystemUI systemUI)
         {
-            systemUI.DisplayMessage("Product {product.Name} has been activated!");
+            systemUI.DisplayMessage(output);
         }
     }
 }
