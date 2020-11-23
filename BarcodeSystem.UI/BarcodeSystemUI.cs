@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using BarcodeSystem.Core;
 using BarcodeSystem.Products;
 using BarcodeSystem.Transactions;
@@ -81,8 +82,13 @@ namespace BarcodeSystem.UI
 
         public void DisplayInvalidArgumentsError(string command, uint numArguments)
         {
-            Console.WriteLine($"Invalid number of arguments in command: {command}." +
-                              $"\n{command} has {numArguments} {(numArguments == 1 ? "argument" : "arguments")}.");
+            string argumentsText = numArguments == 1 ? "argument" : "arguments";
+            
+            StringBuilder output = new StringBuilder()
+                .AppendLine($"Invalid number of arguments in command: {command}.")
+                .AppendLine($"{command} has {numArguments} {argumentsText}.");
+
+            Console.WriteLine(output);
         }
 
         public void DisplayCommandNotFoundMessage(string command)
