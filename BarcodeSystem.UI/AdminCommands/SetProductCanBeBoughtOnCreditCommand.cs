@@ -11,11 +11,15 @@ namespace BarcodeSystem.UI.AdminCommands
 
         private IProduct product;
         
+        private bool wasProductUpdated;
+        
         public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             uint productId = uint.Parse(args[0]);
 
             product = systemManager.GetProductById(productId);
+            wasProductUpdated = product.CanBeBoughtOnCredit != CanBeBoughtOnCredit;
+            
             product.CanBeBoughtOnCredit = CanBeBoughtOnCredit;
         }
 
@@ -23,17 +27,17 @@ namespace BarcodeSystem.UI.AdminCommands
         {
             string output;
 
-            if (product.CanBeBoughtOnCredit == CanBeBoughtOnCredit)
-            {
-                output = CanBeBoughtOnCredit
-                    ? $"Product {product.Name} can already be bought on credit!"
-                    : $"Product {product.Name} already cannot be bought on credit.";
-            }
-            else
+            if (wasProductUpdated)
             {
                 output = CanBeBoughtOnCredit
                     ? $"Product {product.Name} can now be bought on credit!"
                     : $"Product {product.Name} can no longer be bought on credit.";
+            }
+            else
+            {
+                output = CanBeBoughtOnCredit
+                    ? $"Product {product.Name} can already be bought on credit!"
+                    : $"Product {product.Name} already cannot be bought on credit!";
             }
             
             systemUI.DisplayMessage(output);
