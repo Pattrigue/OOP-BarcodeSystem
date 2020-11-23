@@ -17,9 +17,15 @@ namespace DashSystem.UI
 
         private bool isRunning;
 
+        private readonly IDashSystemController controller;
+        
+        public DashSystemUI(IDashSystemController dashSystemController)
+        {
+            this.controller = controller;
+        }
+
         public void Start()
         {
-            IDashSystemController controller = new DashSystemController();
             DashSystemCommandParser commandParser = new DashSystemCommandParser(controller, this);
             
             isRunning = true;
