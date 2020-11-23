@@ -4,7 +4,7 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public sealed class ExitCommand : IAdminCommand
     {
-        public int NumArguments => 0;
+        public uint NumArguments => 0;
         
         public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {

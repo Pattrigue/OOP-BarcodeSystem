@@ -79,6 +79,12 @@ namespace BarcodeSystem.UI
             Console.WriteLine($"Too many arguments in command {command}!");
         }
 
+        public void DisplayInvalidArgumentsError(string command, uint numArguments)
+        {
+            Console.WriteLine($"Invalid number of arguments in command: {command}." +
+                              $"\n{command} has {numArguments} {(numArguments == 1 ? "argument" : "arguments")}.");
+        }
+
         public void DisplayCommandNotFoundMessage(string command)
         {
             Console.WriteLine($"Command {command} not found!");
@@ -89,14 +95,14 @@ namespace BarcodeSystem.UI
             Console.WriteLine($"Admin command {adminCommand} not found!");
         }
 
-        public void DisplayUserBuysProduct(BuyTransaction transaction)
+        public void DisplayUserBuysProduct(IUser user, IProduct product)
         {
-            Console.WriteLine($"{transaction.User.Username} successfully purchased {transaction.Product.Name}!");
+            Console.WriteLine($"{user.Username} successfully purchased {product.Name}!");
         }
 
-        public void DisplayUserBuysProduct(BuyTransaction transaction, uint count)
+        public void DisplayUserBuysProduct(IUser user, IProduct product, uint count)
         {
-            Console.WriteLine($"{transaction.User.Username} successfully purchased {count} {transaction.Product.Name}!");
+            Console.WriteLine($"{user.Username} successfully purchased {count} {product.Name}!");
         }
 
         public void DisplayInsufficientCash(IUser user, IProduct product)

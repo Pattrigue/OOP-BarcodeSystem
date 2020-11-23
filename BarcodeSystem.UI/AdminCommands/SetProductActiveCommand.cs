@@ -5,7 +5,7 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public abstract class SetProductActiveCommand : ProductAdminCommand
     {
-        public override int NumArguments => 1;
+        public override uint NumArguments => 1;
 
         protected abstract bool Active { get; }
         

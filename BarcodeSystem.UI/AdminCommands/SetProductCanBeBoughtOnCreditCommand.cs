@@ -5,7 +5,7 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public abstract class SetProductCanBeBoughtOnCreditCommand : IAdminCommand
     {
-        public int NumArguments => 1;
+        public uint NumArguments => 1;
 
         protected abstract bool CanBeBoughtOnCredit { get; }
 

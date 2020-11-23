@@ -5,7 +5,7 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public sealed class AddCreditsToUserCommand : IAdminCommand
     {
-        public int NumArguments => 2;
+        public uint NumArguments => 2;
 
         private string username;
         private int amount;

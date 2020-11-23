@@ -61,7 +61,11 @@ namespace BarcodeSystem.Controller
                 
                 IAdminCommand adminCommand = adminCommands[adminCommandString];
 
-                if (adminCommand.NumArguments != args.Length) continue;
+                if (adminCommand.NumArguments != args.Length)
+                {
+                    systemUI.DisplayInvalidArgumentsError(adminCommandString, adminCommand.NumArguments);
+                    return;
+                }
 
                 try
                 {
@@ -129,15 +133,32 @@ namespace BarcodeSystem.Controller
             {
                 systemUI.DisplayProductNotFound(productIdString);
                 return;
-            } 
+            }
+
+            if (count < 1)
+            {
+                systemUI.DisplayError($"Invalid product count: {count}.");
+                return;
+            }
             
             try
             {
                 IUser user = systemManager.GetUserByUsername(username);
                 IProduct product = systemManager.GetProductById(productId);
 
-                BuyTransaction transaction = systemManager.BuyProduct(user, product);
-                systemUI.DisplayUserBuysProduct(transaction, count);
+                for (int i = 0; i < count; i++)
+                {
+                    systemManager.BuyProduct(user, product);
+                }
+
+                if (count == 1)
+                {
+                    systemUI.DisplayUserBuysProduct(user, product);
+                }
+                else
+                {
+                    systemUI.DisplayUserBuysProduct(user, product, count);
+                }
             }
             catch (Exception e)
             {

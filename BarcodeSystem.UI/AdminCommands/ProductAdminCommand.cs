@@ -5,7 +5,7 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public abstract class ProductAdminCommand : IAdminCommand
     {
-        public abstract int NumArguments { get; }
+        public abstract uint NumArguments { get; }
 
         public abstract void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager);
 
