@@ -19,9 +19,9 @@ namespace BarcodeSystem.UI
 
         private readonly IBarcodeSystemController controller;
         
-        public BarcodeSystemUI(IBarcodeSystemController barcodeSystemController)
+        public BarcodeSystemUI(IBarcodeSystemController controller)
         {
-            controller = barcodeSystemController;
+            this.controller = controller;
         }
 
         public void Start()
