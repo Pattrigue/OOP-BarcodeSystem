@@ -11,7 +11,6 @@ namespace BarcodeSystem.Tests.BarcodeSystemManagerTests
         [TestCase(-1, 0)]
         [TestCase(0, 0)]
         [TestCase(1, 1)]
-        [TestCase(null, 0)]
         public void GetUsers_GetByUsername_CountIsExpectedValue(int id, int expectedCount)
         {
             BarcodeSystemManager systemManager = new BarcodeSystemManager();
