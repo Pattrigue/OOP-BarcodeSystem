@@ -15,7 +15,7 @@ namespace BarcodeSystem.Tests.BarcodeSystemManagerTests
         public void GetUsers_GetByUsername_CountIsExpectedValue(int id, int expectedCount)
         {
             BarcodeSystemManager systemManager = new BarcodeSystemManager();
-            IEnumerable<IUser> users = systemManager.GetUsers((user => user.Id == id));
+            IEnumerable<IUser> users = systemManager.GetUsers(user => user.Id == id);
 
             Assert.AreEqual(expectedCount, users.Count());
         }
@@ -24,7 +24,7 @@ namespace BarcodeSystem.Tests.BarcodeSystemManagerTests
         public void UserBalanceWarning_UserLowBalance_ExpectEventInvoked()
         {
             BarcodeSystemManager systemManager = new BarcodeSystemManager();
-            IUser user = systemManager.GetUsers((u => u.Username != null)).First();
+            IUser user = systemManager.GetUsers(u => u.Username != null).First();
             
             bool wasEventInvoked = false;
 
