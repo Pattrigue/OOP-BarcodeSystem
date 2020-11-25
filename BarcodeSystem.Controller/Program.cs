@@ -7,7 +7,7 @@ namespace BarcodeSystem.Controller
     {
         private static void Main(string[] args)
         {
-            IBarcodeSystemManager systemManager = new BarcodeSystemManager();
+            IBarcodeSystemManager systemManager = new BarcodeSystemManager().EnableLogging();
             IBarcodeSystemUI systemUI = new BarcodeSystemUI(systemManager);
             BarcodeSystemController systemController = new BarcodeSystemController(systemManager, systemUI);
             

@@ -19,6 +19,8 @@ namespace BarcodeSystem.Core
 
         public IEnumerable<IProduct> ActiveProducts => Products.Where(p => p.IsActive);
 
+        private bool loggingEnabled;
+        
         private readonly string dataDirectory = Path.Combine(Directory.GetCurrentDirectory(), "CsvData");
         
         public BarcodeSystemManager()
@@ -26,6 +28,13 @@ namespace BarcodeSystem.Core
             LoadCsvData();
             ExecuteLoggedTransactions();
             SubscribeEvents();
+        }
+
+        public BarcodeSystemManager EnableLogging()
+        {
+            loggingEnabled = true;
+
+            return this;
         }
 
         public BuyTransaction BuyProduct(IUser user, IProduct product)
@@ -88,7 +97,12 @@ namespace BarcodeSystem.Core
         private void ExecuteTransaction(ITransaction transaction)
         {
             transaction.Execute();
-            transaction.Log(dataDirectory);
+
+            if (loggingEnabled)
+            {
+                transaction.Log(dataDirectory);
+            }
+
             Transactions.Add(transaction);
         }
 
