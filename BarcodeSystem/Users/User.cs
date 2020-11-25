@@ -5,20 +5,20 @@ using System.Text.RegularExpressions;
 namespace BarcodeSystem.Users
 {
     public delegate void LowFundsNotification(decimal amount);
-    
+
     public sealed class User : IUser, IComparable<User>
     {
         public event LowFundsNotification LowFundsWarning;
-        
+
         private const int MinWarningBalance = 50;
 
         private string email;
         private string firstName;
         private string lastName;
         private string username;
-        
+
         private decimal balance;
-    
+
         public User(uint id, string firstName, string lastName, string username, string email, decimal balance)
         {
             Id = id;
@@ -58,7 +58,7 @@ namespace BarcodeSystem.Users
                 lastName = value;
             }
         }
-        
+
         public string Username
         {
             get => username;
@@ -68,10 +68,11 @@ namespace BarcodeSystem.Users
                 {
                     throw new ArgumentException("Username cannot be empty or null!");
                 }
-                
+
                 if (Regex.IsMatch(value, "([^a-z0-9_])"))
                 {
-                    throw new ArgumentException("Usernames can only contain lowercase characters, numbers 0-9 and underscores!");
+                    throw new ArgumentException(
+                        "Usernames can only contain lowercase characters, numbers 0-9 and underscores!");
                 }
 
                 username = value;
@@ -97,15 +98,18 @@ namespace BarcodeSystem.Users
 
                 string localPart = emailParts[0];
                 string domain = emailParts[1];
-                
+
                 if (Regex.IsMatch(localPart, "[^a-zA-Z0-9._-]"))
                 {
-                    throw new InvalidEmailException("Email local part can only contain a-z, A-Z, and numbers 0-9 as well as dots, underscores and hyphens!", value);
+                    throw new InvalidEmailException(
+                        "Email local part can only contain a-z, A-Z, and numbers 0-9 as well as dots, underscores and hyphens!",
+                        value);
                 }
 
                 if (Regex.IsMatch(domain, "[^a-zA-Z0-9.-]"))
                 {
-                    throw new InvalidEmailException("Email domain can only contain a-z, A-Z, and numbers 0-9 as well as dots and hyphens!", value);
+                    throw new InvalidEmailException(
+                        "Email domain can only contain a-z, A-Z, and numbers 0-9 as well as dots and hyphens!", value);
                 }
 
                 if (domain.StartsWith('.') || domain.StartsWith('-'))
@@ -117,12 +121,12 @@ namespace BarcodeSystem.Users
                 {
                     throw new InvalidEmailException("Email domain cannot end with a dot or hyphen!", value);
                 }
-                
+
                 if (!domain.Contains('.'))
                 {
                     throw new InvalidEmailException("Email domain must contain at least one dot!", value);
                 }
-                
+
                 email = value;
             }
         }
@@ -155,6 +159,6 @@ namespace BarcodeSystem.Users
 
         public override int GetHashCode() => Username.GetHashCode();
 
-        public int CompareTo([NotNull] User otherUser) => Id.CompareTo(otherUser.Id);
+        public int CompareTo([NotNull] User otherUser) => string.Compare(username, otherUser.username);
     }
 }
