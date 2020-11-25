@@ -1,25 +1,26 @@
 ﻿using System;
+using BarcodeSystem.Products;
 using BarcodeSystem.Users;
 
 namespace BarcodeSystem.Transactions
 {
     public abstract class Transaction : ITransaction
-    {        
+    {
         protected Transaction(uint id, IUser user, DateTime date, decimal amount)
         {
-            Id = id;
             User = user;
             Date = date;
             Amount = amount;
+            Id = id;
         }
         
         protected Transaction(IUser user, DateTime date, decimal amount)
         {
-            Id = idCounter++;
             User = user;
             Date = date;
             Amount = amount;
-        }
+            Id = idCounter++;
+        } 
 
         private uint id;
         

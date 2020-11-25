@@ -26,7 +26,7 @@ namespace BarcodeSystem.CsvDataAccess
             IUser user = barcodeSystemManager.GetUserByUsername(Username);
             IProduct product = barcodeSystemManager.GetProductById(productId);
                 
-            return new BuyTransaction(user, product, Date);
+            return new BuyTransaction(Id, user, product, Date);
         }
     }
 }

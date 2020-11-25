@@ -10,6 +10,9 @@ namespace BarcodeSystem.Transactions
         public InsertCashTransaction(IUser user, DateTime date, decimal amount) 
             : base(user, date, amount) { }
 
+        public InsertCashTransaction(uint id, IUser user, DateTime date, decimal amount)
+            : base(id, user,date, amount) { }
+
         protected override string CsvFileName => Constants.InsertCashTransactionsFileName;
 
         public override string ToString() => $"Insert cash transaction with ID {Id}: {Amount}, {User}, {Date}";

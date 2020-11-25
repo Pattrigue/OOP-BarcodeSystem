@@ -21,7 +21,7 @@ namespace BarcodeSystem.CsvDataAccess
         {
             IUser user = barcodeSystemManager.GetUserByUsername(Username);
 
-            return new InsertCashTransaction(user, Date, Amount);
+            return new InsertCashTransaction(Id, user, Date, Amount);
         }
     }
 }

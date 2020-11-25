@@ -14,6 +14,12 @@ namespace BarcodeSystem.Transactions
             Product = product;
         }
 
+        public BuyTransaction(uint id, IUser user, IProduct product, DateTime date)
+            : this(user, product, date)
+        {
+            Id = id;
+        }
+
         public IProduct Product { get; }
 
         protected override string CsvFileName => Constants.BuyTransactionsFileName;
