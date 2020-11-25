@@ -5,6 +5,8 @@ namespace BarcodeSystem.Transactions
 {
     public abstract class Transaction : ITransaction
     {        
+        // TODO:
+        // Make constructor which takes an ID for CSV loading
         protected Transaction(IUser user, DateTime date, decimal amount)
         {
             Id = idCounter++;

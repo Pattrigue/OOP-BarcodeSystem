@@ -38,6 +38,8 @@ namespace BarcodeSystem.UI
             {
                 ShowProducts(systemManager.ActiveProducts);
 
+                Console.Write("> ");
+
                 string command = Console.ReadLine();
                 CommandEntered?.Invoke(command);
 

@@ -15,6 +15,7 @@ namespace BarcodeSystem.Tests.UserTests
         [TestCase("email@example.com_")]
         [TestCase("email@.example.com")]
         [TestCase("email@example.com.")]
+        [TestCase("(invalid)@example.com")]
         public void SetEmail_SetToIncorrectFormat_ExpectAssertion(string email)
         {
             User user = CreateUser();
