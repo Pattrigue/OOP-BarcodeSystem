@@ -145,6 +145,8 @@ namespace BarcodeSystem.Controller
                 IUser user = systemManager.GetUserByUsername(username);
                 IProduct product = systemManager.GetProductById(productId);
 
+                // TODO:
+                // Change this so it doesn't spit out warnings every time the balance changes to a value < 50
                 for (int i = 0; i < count; i++)
                 {
                     systemManager.BuyProduct(user, product);
