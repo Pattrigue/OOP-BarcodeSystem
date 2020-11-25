@@ -5,8 +5,14 @@ namespace BarcodeSystem.Transactions
 {
     public abstract class Transaction : ITransaction
     {        
-        // TODO:
-        // Make constructor which takes an ID for CSV loading
+        protected Transaction(uint id, IUser user, DateTime date, decimal amount)
+        {
+            Id = id;
+            User = user;
+            Date = date;
+            Amount = amount;
+        }
+        
         protected Transaction(IUser user, DateTime date, decimal amount)
         {
             Id = idCounter++;
@@ -14,12 +20,26 @@ namespace BarcodeSystem.Transactions
             Date = date;
             Amount = amount;
         }
+
+        private uint id;
         
         private static uint idCounter;
 
         protected abstract string CsvFileName { get; }
 
-        public uint Id { get; }
+        public uint Id
+        {
+            get => id;
+            set
+            {
+                if (value > idCounter)
+                {
+                    idCounter = value + 1;
+                }
+
+                id = value;
+            }
+        }
 
         public IUser User { get; }
         
