@@ -15,7 +15,7 @@ namespace BarcodeSystem.Transactions
 
         protected override string CsvFileName => Constants.InsertCashTransactionsFileName;
 
-        public override string ToString() => $"Insert cash transaction with ID {Id}: {Amount}, {User}, {Date}";
+        public override string ToString() => $"Insert cash transaction with ID = {Id}, Amount = {Amount}, User = {User}, Date = {Date}";
 
         public override void Execute() => User.Balance += Amount;
 

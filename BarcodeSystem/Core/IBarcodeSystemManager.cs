@@ -12,7 +12,7 @@ namespace BarcodeSystem.Core
     {
         event UserBalanceNotification UserBalanceWarning;
         IEnumerable<IProduct> ActiveProducts { get; }
-        BuyTransaction BuyProduct(IUser user, IProduct product);
+        BuyTransaction BuyProduct(IUser user, IProduct product, uint count);
         InsertCashTransaction AddCreditsToAccount(IUser user, decimal amount);
         IProduct GetProductById(uint productId);
         IEnumerable<IUser> GetUsers(Func<IUser, bool> predicate);

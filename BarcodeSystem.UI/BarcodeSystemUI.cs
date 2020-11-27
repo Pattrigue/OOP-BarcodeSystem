@@ -103,14 +103,13 @@ namespace BarcodeSystem.UI
             Console.WriteLine($"Admin command {adminCommand} not found!");
         }
 
-        public void DisplayUserBuysProduct(IUser user, IProduct product)
-        {
-            Console.WriteLine($"{user.Username} successfully purchased {product.Name}!");
-        }
-
         public void DisplayUserBuysProduct(IUser user, IProduct product, uint count)
         {
-            Console.WriteLine($"{user.Username} successfully purchased {count} {product.Name}!");
+            string output = count == 1
+                ? $"{user.Username} successfully purchased {product.Name}!"
+                : $"{user.Username} successfully purchased {count}x {product.Name}!";
+            
+            Console.WriteLine(output);
         }
 
         public void DisplayInsufficientCash(IUser user, IProduct product)

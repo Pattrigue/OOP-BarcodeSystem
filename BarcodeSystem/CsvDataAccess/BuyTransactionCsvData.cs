@@ -9,6 +9,7 @@ namespace BarcodeSystem.CsvDataAccess
     public sealed class BuyTransactionCsvData : TransactionCsvData
     {
         private uint productId;
+        private uint count;
 
         public override void ReadLine(char separator, string csvLine)
         {
@@ -19,14 +20,15 @@ namespace BarcodeSystem.CsvDataAccess
             productId = uint.Parse(fields[2]);
             Date = DateTime.Parse(fields[3]);
             Amount = decimal.Parse(fields[4]);
+            count = uint.Parse(fields[5]);
         }
 
         public override ITransaction ToTransaction(IBarcodeSystemManager barcodeSystemManager)
         {
             IUser user = barcodeSystemManager.GetUserByUsername(Username);
             IProduct product = barcodeSystemManager.GetProductById(productId);
-                
-            return new BuyTransaction(Id, user, product, Date);
+
+            return new BuyTransaction(Id, user, product, Date, count);
         }
     }
 }

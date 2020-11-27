@@ -147,19 +147,8 @@ namespace BarcodeSystem.Controller
 
                 // TODO:
                 // Change this so it doesn't spit out warnings every time the balance changes to a value < 50
-                for (int i = 0; i < count; i++)
-                {
-                    systemManager.BuyProduct(user, product);
-                }
-
-                if (count == 1)
-                {
-                    systemUI.DisplayUserBuysProduct(user, product);
-                }
-                else
-                {
-                    systemUI.DisplayUserBuysProduct(user, product, count);
-                }
+                systemManager.BuyProduct(user, product, count);
+                systemUI.DisplayUserBuysProduct(user, product, count);
             }
             catch (Exception e)
             {
