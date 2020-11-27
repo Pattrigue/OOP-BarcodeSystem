@@ -37,7 +37,7 @@ namespace BarcodeSystem.Core
             return this;
         }
 
-        public BuyTransaction BuyProduct(IUser user, IProduct product, uint count)
+        public BuyTransaction BuyProduct(IUser user, IProduct product, uint count = 1)
         {
             BuyTransaction buyTransaction = new BuyTransaction(user, product, DateTime.Now, count);
             
