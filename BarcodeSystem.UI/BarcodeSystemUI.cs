@@ -68,7 +68,8 @@ namespace BarcodeSystem.UI
         public void DisplayUserInfo(IUser user)
         {
             Console.WriteLine(user);
-
+            Console.WriteLine("\nTransaction history:");
+            
             IEnumerable<ITransaction> transactions = systemManager.GetTransactions(user, int.MaxValue);
 
             foreach (ITransaction transaction in transactions)

@@ -27,7 +27,7 @@ namespace BarcodeSystem.Transactions
 
         private readonly uint count = 1u;
         
-        public override string ToString() => $"Buy transaction with ID = {Id}, Amount = {Amount}, User = {User}, Date = {Date}, Count = {count}";
+        public override string ToString() => $"Buy transaction with ID = {Id}, Amount; {Amount}, User = {User.Username}, Date = {Date}, Count = {count}";
 
         public override void Execute()
         {

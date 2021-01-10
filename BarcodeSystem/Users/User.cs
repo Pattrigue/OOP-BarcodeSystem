@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace BarcodeSystem.Users
@@ -145,7 +146,10 @@ namespace BarcodeSystem.Users
             }
         }
 
-        public override string ToString() => $"{Id}: {FirstName} {LastName} ({Email})";
+        public override string ToString()
+        {
+            return $"ID = {Id}\nName = {FirstName} {LastName}\nEmail = {Email}\nBalance = {balance}";
+        }
 
         public override bool Equals(object obj)
         {
