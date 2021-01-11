@@ -3,35 +3,40 @@ using BarcodeSystem.Products;
 
 namespace BarcodeSystem.UI.AdminCommands
 {
-    public abstract class SetProductCanBeBoughtOnCreditCommand : IAdminCommand
+    public sealed class SetProductCanBeBoughtOnCredit : IAdminCommand
     {
         public uint NumArguments => 1;
-
-        protected abstract bool CanBeBoughtOnCredit { get; }
 
         private IProduct product;
 
         private string output;
-        
+
+        private readonly bool canBeBoughtOnCredit;
+
+        public SetProductCanBeBoughtOnCredit(bool canBeBoughtOnCredit)
+        {
+            this.canBeBoughtOnCredit = canBeBoughtOnCredit;
+        }
+
         public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             uint productId = uint.Parse(args[0]);
 
             product = systemManager.GetProductById(productId);
             
-            if (CanBeBoughtOnCredit == product.CanBeBoughtOnCredit)
+            if (canBeBoughtOnCredit == product.CanBeBoughtOnCredit)
             { 
-                output = CanBeBoughtOnCredit
+                output = canBeBoughtOnCredit
                     ? $"Product {product.Name} can already be bought on credit!"
                     : $"Product {product.Name} already cannot be bought on credit!";
             }
             else
             {
-                output = CanBeBoughtOnCredit
+                output = canBeBoughtOnCredit
                     ? $"Product {product.Name} can now be bought on credit."
                     : $"Product {product.Name} can no longer be bought on credit.";
                 
-                product.CanBeBoughtOnCredit = CanBeBoughtOnCredit;
+                product.CanBeBoughtOnCredit = canBeBoughtOnCredit;
             }
         }
 

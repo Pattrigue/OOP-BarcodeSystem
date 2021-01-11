@@ -27,10 +27,10 @@ namespace BarcodeSystem.Controller
             {
                 { "addcredits", new AddCreditsToUserCommand() },
                 { "qa", new ExitCommand() },
-                { "activate", new ActivateProductCommand() },
-                { "deactivate", new DeactivateProductCommand() },
-                { "crediton", new SetProductCanBeBoughtOnCreditOn() },
-                { "creditoff", new SetProductCanBeBoughtOnCreditOff() }
+                { "activate", new SetProductActiveCommand(true) },
+                { "deactivate", new SetProductActiveCommand(false) },
+                { "crediton", new SetProductCanBeBoughtOnCredit(true) },
+                { "creditoff", new SetProductCanBeBoughtOnCredit(false) }
             };
 
             systemUI.CommandEntered += ParseCommand;

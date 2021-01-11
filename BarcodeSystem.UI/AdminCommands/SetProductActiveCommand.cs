@@ -3,33 +3,38 @@ using BarcodeSystem.Products;
 
 namespace BarcodeSystem.UI.AdminCommands
 {
-    public abstract class SetProductActiveCommand : ProductAdminCommand
+    public sealed class SetProductActiveCommand : ProductAdminCommand
     {
         public override uint NumArguments => 1;
 
-        protected abstract bool Active { get; }
-        
         private IProduct product;
 
         private string output;
+
+        private readonly bool active;
+
+        public SetProductActiveCommand(bool active)
+        {
+            this.active = active;
+        }
         
         public override void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             product = GetProduct(args[0], systemUI, systemManager);
             
-            if (Active == product.IsActive)
+            if (active == product.IsActive)
             { 
-                output = Active
+                output = active
                     ? $"Product {product.Name} is already active!"
                     : $"Product {product.Name} is already inactive!";
             }
             else
             {
-                output = Active
+                output = active
                     ? $"Product {product.Name} is now active."
                     : $"Product {product.Name} is no longer active.";
                 
-                product.IsActive = Active;
+                product.IsActive = active;
             }
         }
 
