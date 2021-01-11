@@ -5,8 +5,6 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public sealed class SetProductActiveCommand : ProductAdminCommand
     {
-        public override uint NumArguments => 1;
-
         private IProduct product;
 
         private string output;
@@ -17,7 +15,9 @@ namespace BarcodeSystem.UI.AdminCommands
         {
             this.active = active;
         }
-        
+
+        public override uint NumArguments => 1;
+
         public override void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
             product = GetProduct(args[0], systemUI, systemManager);
