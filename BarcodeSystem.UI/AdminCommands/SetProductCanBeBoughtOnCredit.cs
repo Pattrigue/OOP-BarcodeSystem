@@ -5,8 +5,6 @@ namespace BarcodeSystem.UI.AdminCommands
 {
     public sealed class SetProductCanBeBoughtOnCredit : IAdminCommand
     {
-        public uint NumArguments => 1;
-
         private IProduct product;
 
         private string output;
@@ -17,6 +15,8 @@ namespace BarcodeSystem.UI.AdminCommands
         {
             this.canBeBoughtOnCredit = canBeBoughtOnCredit;
         }
+
+        public uint NumArguments => 1;
 
         public void Execute(string[] args, IBarcodeSystemUI systemUI, IBarcodeSystemManager systemManager)
         {
