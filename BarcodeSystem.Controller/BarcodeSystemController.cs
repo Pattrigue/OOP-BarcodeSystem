@@ -51,7 +51,6 @@ namespace BarcodeSystem.Controller
         private void TryParseAdminCommand(string command)
         {
             string[] args = command.Split(' ').Skip(1).ToArray();
-
             string adminCommandWithoutPrefix = command.Replace(AdminCommandPrefix.ToString(), string.Empty);
             
             foreach (string adminCommandString in adminCommands.Keys)
