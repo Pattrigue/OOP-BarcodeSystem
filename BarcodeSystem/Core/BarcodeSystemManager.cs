@@ -141,15 +141,18 @@ namespace BarcodeSystem.Core
                 user.LowFundsWarning += (amount) => UserBalanceWarning?.Invoke(user, amount);
             }
         }
-        
+
         private static void LoadFromCsvFile<T>(CsvDataReader<T> dataReader, string path, Action<T> callbackForEachItem)
             where T : ICsvData, new()
         {
             IEnumerable<T> csvData = dataReader.ReadFile(path);
 
-            foreach (T item in csvData)
+            if (callbackForEachItem != null)
             {
-                callbackForEachItem?.Invoke(item);
+                foreach (T item in csvData)
+                {
+                    callbackForEachItem.Invoke(item);
+                }
             }
         }
     }
